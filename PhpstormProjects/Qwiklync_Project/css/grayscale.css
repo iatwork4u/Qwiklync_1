@@ -139,7 +139,7 @@ a:focus {
   font-size: 18px;
 }
 
-/* signUP page background pic */
+/* sign UP page background pic */
 .intro1 {
   display: table;
   width: 100%;
@@ -341,6 +341,7 @@ body {
 /* Sign in form css*/
 .form-signin {
   max-width: 380px;
+  max-height: 280px;
   padding: 15px 35px 45px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.3);
@@ -373,7 +374,8 @@ input[type="password"] {
 /* Sign UP form css*/
 .form-signup {
   max-width: 380px;
-  padding: 15px 35px 45px;
+  max-height: 530px;
+  padding: 15px 20px 45px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -406,4 +408,9 @@ input[type="password"] {
   height: 40px;
   width: 150px;
   margin: -16px 20px;
+}
+
+/* forgot password in sign in page css */
+.fgotpsd{
+  font-size: smaller;
 }
