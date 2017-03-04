@@ -35,7 +35,7 @@ p {
   }
 }
 a {
-  color: #42DCA3;
+  color: #337ab7;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -43,7 +43,7 @@ a {
 a:hover,
 a:focus {
   text-decoration: none;
-  color: #1d9b6c;
+  color: #ffffff;
 }
 .light {
   font-weight: 400;
@@ -81,7 +81,7 @@ a:focus {
 .navbar-custom .nav li a:hover {
   color: rgba(255, 255, 255, 0.8);
   outline: none;
-  background-color: transparent;
+  background-color: #286090;
 }
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a:active {
@@ -113,6 +113,7 @@ a:focus {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
+/* signin page background pic */
 .intro {
   display: table;
   width: 100%;
@@ -137,6 +138,33 @@ a:focus {
 .intro .intro-body .intro-text {
   font-size: 18px;
 }
+
+/* signUP page background pic */
+.intro1 {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/mansit.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro .intro-body .brand-heading {
+  font-size: 40px;
+}
+.intro .intro-body .intro-text {
+  font-size: 18px;
+}
+
 @media (min-width: 768px) {
   .intro {
     height: 100%;
@@ -285,6 +313,7 @@ ul.banner-social-buttons {
 }
 footer {
   padding: 50px 0;
+  background-color: #286090;
 }
 footer p {
   margin: 0;
@@ -341,11 +370,40 @@ input[type="password"] {
   border-top-right-radius: 0;
 }
 
+/* Sign UP form css*/
+.form-signup {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.form-control {
+  position: inherit;
+  font-size: 16px;
+  height:inherit;
+  padding: 10px;
+  z-index: 2;
+}
+
+input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/*already a member in signup page css*/
+.text{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 /*Logo size in to menu bar*/
 #logosize{
   height: 40px;
   width: 150px;
   margin: -16px 20px;
-
-
 }
