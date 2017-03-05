@@ -1,4 +1,4 @@
-/*Author Nithin k s*/
+/*Author iatwork4u*/
 body {
     width: 100%;
     height: 100%;
@@ -109,7 +109,7 @@ a:focus {
     }
     .navbar-custom.top-nav-collapse {
         padding: 0;
-        background: #286090;
+        background: #276090;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
 }
@@ -138,33 +138,11 @@ a:focus {
 .intro .intro-body .intro-text {
     font-size: 18px;
 }
-
-/* signUP page background pic */
-.intro1 {
-    display: table;
-    width: 100%;
-    height: auto;
-    padding: 100px 0;
-    text-align: center;
-    color: white;
-    background: url(../img/mansit.jpg) no-repeat bottom center scroll;
-    background-color: black;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+#weltext{
+    font-family: "Copperplate Gothic Light";
+    font-weight: 100;
+    font-size: 800%;
 }
-.intro .intro-body {
-    display: table-cell;
-    vertical-align: middle;
-}
-.intro .intro-body .brand-heading {
-    font-size: 40px;
-}
-.intro .intro-body .intro-text {
-    font-size: 18px;
-}
-
 @media (min-width: 768px) {
     .intro {
         height: 100%;
@@ -338,68 +316,6 @@ body {
     webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Sign in form css*/
-.form-signin {
-    max-width: 380px;
-    padding: 15px 35px 45px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.checkbox {
-    font-weight: normal;
-    margin-bottom: 30px;
-}
-.form-control {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-
-    z-index: 2;
-}
-
-input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-input[type="password"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
-/* Sign UP form css*/
-.form-signup {
-    max-width: 380px;
-    padding: 15px 35px 35px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.form-control {
-    position: inherit;
-    font-size: 16px;
-    height:inherit;
-    padding: 10px;
-    z-index: 2;
-}
-
-input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-input[type="password"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-/*already a member in signup page css*/
-.text{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 
 /*Logo size in to menu bar*/
 #logosize{
@@ -422,8 +338,6 @@ input[type="password"] {
 	border-top-style: solid;
 	border-top-color: #003;*/
 }
-
-
 
 .title-widget {
   color: #898989;
@@ -450,8 +364,6 @@ input[type="password"] {
   width: 5px;
 }
 
-
-
 .widget_nav_menu ul {
   list-style: outside none none;
   padding-left: 0;
@@ -467,7 +379,6 @@ input[type="password"] {
   width: 3px;
 }
 
-
 .widget_nav_menu ul li {
   font-size: 13px;
   font-weight: 700;
@@ -479,9 +390,9 @@ input[type="password"] {
   padding-bottom: 7px;
   width:95%;
 }
-
-
-
+.widget_nav_menu li :hover{
+    color: #276090;
+}
 .title-median {
   color: #636363;
   font-size: 20px;
@@ -491,8 +402,13 @@ input[type="password"] {
   font-family: 'Fjalla One', sans-serif;
 }
 
-.footerp p {font-family: 'Gudea', sans-serif; }
-
+.footerp p {
+    font-family: 'Gudea', sans-serif;
+    color: #276090;
+    font-size: medium;
+}
+.footerp :hover{
+    color: #337ab7; }
 
 #social:hover {
   -webkit-transform:scale(1.1);
@@ -525,12 +441,8 @@ input[type="password"] {
 }
 .nomargin { margin:0px; padding:0px;}
 
-
-
-
-
 .footer-bottom {
-  background-color: #15224f;
+  background-color: #276090;
   min-height: 30px;
   width: 100%;
 }
@@ -551,99 +463,3 @@ input[type="password"] {
   color: #fff;
 }  /* Footer Css End */
 
-/* sign in Modal css start */
-
-/****** LOGIN MODAL ******/
-.loginmodal-container {
-  padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  font-family:'Arial', sans-serif;
-}
-
-.loginmodal-container h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: 'Arial', sans-serif;
-}
-
-.loginmodal-container input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.loginmodal-container input[type=text], input[type=password] {
-  height: 44px;
-  font-size: 16px;
-  width: 100%;
-  margin-bottom: 10px;
-  -webkit-appearance: none;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  border-top: 1px solid #c0c0c0;
-  /* border-radius: 2px; */
-  padding: 0 8px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-.loginmodal-container input[type=text]:hover, input[type=password]:hover {
-  border: 1px solid #b9b9b9;
-  border-top: 1px solid #a0a0a0;
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.loginmodal {
-  text-align: center;
-  font-size: 14px;
-  font-family: 'Arial', sans-serif;
-  font-weight: 700;
-  height: 36px;
-  padding: 0 8px;
-  /* border-radius: 3px; */
-  /* -webkit-user-select: none;
-    user-select: none; */
-}
-
-.loginmodal-submit {
-  /* border: 1px solid #3079ed; */
-  border: 0;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1);
-  background-color:#337ab7;
-  padding: 17px 0;
-  font-family: 'Arial', sans-serif;
-  font-size: 14px;
-  /*background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed));*/
-}
-
-.loginmodal-submit:hover {
-  border: 1px solid #2f5bb7;
-
-  text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #286090;
- /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8));*/
-}
-
-.loginmodal-container a {
-  text-decoration: none;
-  color: #666;
-  font-weight: 400;
-  text-align: center;
-  display: inline-block;
-  opacity: 0.6;
-  transition: opacity ease 0.5s;
-}
-
-.login-help{
-  font-size: 12px;
-}  /* sign in Modal css End */

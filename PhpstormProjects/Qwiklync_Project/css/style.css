@@ -1,0 +1,62 @@
+/* Author iatwork4u */
+
+.form-inline .form-group{
+	margin-bottom: 20px;
+	float: right;
+}
+.title{
+    text-decoration:underline;
+    padding: 10px 5px;
+}
+.btn-launch,.btn-launch:hover, .btn-launch:active, .btn-launch:focus{
+	background-color: #276090;
+    border: medium none #286090;
+    box-shadow: 0 3px 0 #266090, 0 5px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 40px;
+    margin-top:10%;
+}
+.bt-login,.bt-login:hover, .bt-login:active, .bt-login:focus {
+    background-color: #276090;
+    color: #ffffff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    transition: background-color 300ms linear 0s;
+}
+
+
+.login-tab {
+	margin: 0 auto;
+	max-width: 380px;
+}
+
+.login-modal-header {
+	background: #276090;
+	color: #fff;
+}
+
+.login-modal-header .modal-title {
+	color: #fff;
+}
+
+.login-modal-header .close {
+	color: #fff;
+}
+
+.login-modal i {
+	color: #000;
+}
+
+.login-modal form {
+	max-width: 340px;
+}
+
+.tab-pane form {
+	margin: 0 auto;
+}
+.login-modal-footer{
+	margin-top:15px;
+	margin-bottom:15px;
+}

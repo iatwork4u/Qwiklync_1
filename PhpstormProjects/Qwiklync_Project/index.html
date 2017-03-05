@@ -24,11 +24,15 @@
     <link href="css/grayscale.min.css" rel="stylesheet">
     <link href="css/grayscale.css" rel="stylesheet">
 
+    <!-- Modal CSS -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="js/ie.js"></script>
     <![endif]-->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"> <!-- favicon in the tab -->
 </head>
@@ -58,13 +62,14 @@
                         <a href="#page-top"></a></li>
 
                     <li>
-                       <!-- <a class="page-scroll" href="#about">About</a> -->
-                    <li><a href="Signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    </li>
+                        <!-- <a class="page-scroll" href="#about">About</a> --></li>
+                   <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+
                     <li>
-                        <!-- <a class="page-scroll" href="#download">Download</a> -->
-                    <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </li>
+                        <!-- <a class="page-scroll" href="#download">Download</a> --></li>
+                    <li><a href="#" data-toggle="modal" data-target="#loginModal">
+                        <span class="glyphicon glyphicon-log-in"></span> Login / Sign Up</a></li>
+
                     <!-- <li>
                              <a class="page-scroll" href="#contact">Contact</a>
                          </li> -->
@@ -74,6 +79,144 @@
         </div>
         <!-- /.container -->
     </nav>
+
+    <!-- -Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content login-modal">
+                <div class="modal-header login-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="loginModalLabel">USER AUTHENTICATION</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div role="tabpanel" class="login-tab">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a id="signin-taba" href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In</a></li>
+                                <li role="presentation"><a id="signup-taba" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up</a></li>
+                                <li role="presentation"><a id="forgetpass-taba" href="#forget_password" aria-controls="forget_password" role="tab" data-toggle="tab">Forget Password</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active text-center" id="home">
+                                    &nbsp;&nbsp;
+                                    <span id="login_fail" class="response_error" style="display: none;">Loggin failed, please try again.</span>
+                                    <div class="clearfix"></div>
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <input type="text" class="form-control" id="login_username" placeholder="Username">
+                                            </div>
+                                            <span class="help-block has-error" id="email-error"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                            </div>
+                                            <span class="help-block has-error" id="password-error"></span>
+                                        </div>
+                                        <button type="button" id="login_btn" class="btn btn-block bt-login" data-loading-text="Signing In....">Login</button>
+                                        <div class="clearfix"></div>
+                                        <div class="login-modal-footer">
+                                            <div class="row">
+                                                <div class="col-xs-8 col-sm-8 col-md-8">
+                                                    <i class="fa fa-lock"></i>
+                                                    <a href="javascript:;" class="forgetpass-tab"> Forgot password? </a>
+
+                                                </div>
+
+                                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="javascript:;" class="signup-tab"> Sign Up </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="profile">
+                                    &nbsp;&nbsp;
+                                    <span id="registration_fail" class="response_error" style="display: none;">Registration failed, please try again.</span>
+                                    <div class="clearfix"></div>
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <input type="text" class="form-control" id="username" placeholder="Username">
+                                            </div>
+                                            <span class="help-block has-error" data-error='0' id="username-error"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                                                <input type="text" class="form-control" id="remail" placeholder="Email">
+                                            </div>
+                                            <span class="help-block has-error" data-error='0' id="remail-error"></span>
+                                        </div>
+                                        <button type="button" id="register_btn" class="btn btn-block bt-login" data-loading-text="Registering....">Register</button>
+                                        <div class="clearfix"></div>
+                                        <div class="login-modal-footer">
+                                            <div class="row">
+                                                <div class="col-xs-8 col-sm-8 col-md-8">
+                                                    <i class="fa fa-lock"></i>
+                                                    <a href="javascript:;" class="forgetpass-tab"> Forgot password? </a>
+
+                                                </div>
+
+                                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="javascript:;" class="signin-tab"> Sign In </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane text-center" id="forget_password">
+                                    &nbsp;&nbsp;
+                                    <span id="reset_fail" class="response_error" style="display: none;"></span>
+                                    <div class="clearfix"></div>
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <input type="text" class="form-control" id="femail" placeholder="Email">
+                                            </div>
+                                            <span class="help-block has-error" data-error='0' id="femail-error"></span>
+                                        </div>
+
+                                        <button type="button" id="reset_btn" class="btn btn-block bt-login" data-loading-text="Please wait....">Forget Password</button>
+                                        <div class="clearfix"></div>
+                                        <div class="login-modal-footer">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <i class="fa fa-lock"></i>
+                                                    <a href="javascript:;" class="signin-tab"> Sign In </a>
+
+                                                </div>
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="javascript:;" class="signup-tab"> Sign Up </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- - Login Model Ends Here -->
+
+
 
     <!-- Intro Header -->
     <header class="intro">
@@ -88,17 +231,11 @@
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div> -->
+                    <div>
+                        <p id="weltext"> Welcome, to Qwiklync </p>
 
-                    <!-- sign in form-->
-                    <form class="form-signin">
-                        <input type="text" class="form-control" name="username" placeholder="Email Id / Mobile No" required="" autofocus=""/></br>
-                    <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-                    <label class="checkbox">
-                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-                    </label>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                        <p class="fgotpsd">Forgot Password <a href="index.html"> "click here" </a></p>
-                    </form>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -166,11 +303,165 @@
     <div id="map"></div> -->
 
     <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Qwiklync &copy; Your Website 2016 </p>
+    <footer class="footer1">
+        <div class="container">
+
+            <div class="row"><!-- row -->
+
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu"><!-- widgets list -->
+
+                            <h1 class="title-widget">Useful links</h1>
+
+                            <ul>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i> Success Stories</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i> PG Courses</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i> Achiever's Batch</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Regular Batch</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test & Discussion</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Fast Track T & D</a></li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu"><!-- widgets list -->
+
+                            <h1 class="title-widget">Useful links</h1>
+
+                            <ul>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Postal Coaching</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  PG Dr. Bhatia Books</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
+                                <li><a  href="#"><i class="fa fa-angle-double-right"></i>  State P.G. Mocks</a></li>
+                                <li><a  href="#" target="_blank"><i class="fa fa-angle-double-right"></i> Results</a></li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu"><!-- widgets list -->
+
+                            <h1 class="title-widget">Useful links</h1>
+
+                            <ul>
+
+
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Enquiry Form</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Online Test Series</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Grand Tests Series</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Subject Wise Test Series</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Smart Book</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Test Centres</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Admission Form</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Computer Live Test</a></li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+                <div class="col-lg-3 col-md-3"><!-- widgets column center -->
+
+
+
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        <li class="widget-container widget_recent_news"><!-- widgets list -->
+
+                            <h1 class="title-widget">Contact Detail </h1>
+
+                            <div class="footerp">
+
+                                <h2 class="title-median">Webenlance Pvt. Ltd.</h2>
+                                <p><b>Email id:</b> <a href="mailto:info@qwiklync.com">info@qwiklync.com</a></p>
+                                <p><b>Helpline Numbers</b> <b style="color:#ffc106;">(8AM to 6PM):</b>
+                                <p>+91-8130890090,</p>
+                                <p>+91-8130190010</p>
+                                </p>
+
+                                <p><b>Corp Office / Postal Address</b></p>
+                                <p><b>Phone Numbers : </b>1234567890, </p>
+                                <p> 011-123455678, 1234567890</p>
+                            </div>
+
+                            <div class="social-icons">
+
+                                <ul class="nomargin">
+
+                                    <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                                    <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                                    <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                                    <a href="mailto:abcd@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
+    <!--header-->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="copyright">
+                        © 2017, Qwiklync, All rights reserved
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                    <div class="design">
+
+                        <a href="#">Developers </a> |  <a target="_blank" href="#">Web Design & Development by Iatwork4u</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.js"></script>
@@ -187,6 +478,25 @@
     <!-- Theme JavaScript -->
     <script src="js/grayscale.min.js"></script>
 
+<!--  Script for modal of signin and signup -->
+    <script>
+        $(document).ready(function(){
+            $(document).on('click','.signup-tab',function(e){
+                e.preventDefault();
+                $('#signup-taba').tab('show');
+            });
+
+            $(document).on('click','.signin-tab',function(e){
+                e.preventDefault();
+                $('#signin-taba').tab('show');
+            });
+
+            $(document).on('click','.forgetpass-tab',function(e){
+                e.preventDefault();
+                $('#forgetpass-taba').tab('show');
+            });
+        });
+    </script>
 </body>
 
 </html>
