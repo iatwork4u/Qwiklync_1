@@ -50,9 +50,10 @@
             <div class="navbar-header">
 
                     <a class="navbar-brand page-scroll" href="#page-top">
-                   <!-- <i class="fa fa-play-circle"></i> <span class="light">Start</span> Bootstrap -->
-
-                    <img class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"id="logosize" src="img/Qwiklync-logo.png" alt="Qwiklync_logo">
+                    <!-- menu btn -->
+                   <i id="menubtn" class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content" ></i>
+                    <!-- Logo -->
+                    <img id="logosize" src="img/Qwiklync-logo.png" alt="Qwiklync_logo">
                 </a>
             </div>
 
@@ -229,56 +230,49 @@
             <ul id="menu-content" class="menu-content collapse out">
                 <li>
                     <a href="#">
-                        <i class="fa fa- fa-lg"></i> Dashboard
+                        <i class="fa fa-home fa-lg"></i> Home
                     </a>
                 </li>
 
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                    <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                <li data-toggle="collapse" data-target="#resume" class="collapsed">
+                    <a href="#"><i class="fa fa-hand-paper-o fa-lg"></i> Resume <span class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="products">
-                    <li class="active"><a href="#">CSS3 Animation</a></li>
-                    <li><a href="#">General</a></li>
-                    <li><a href="#">Buttons</a></li>
-                    <li><a href="#">Tabs & Accordions</a></li>
-                    <li><a href="#">Typography</a></li>
-                    <li><a href="#">FontAwesome</a></li>
-                    <li><a href="#">Slider</a></li>
-                    <li><a href="#">Panels</a></li>
-                    <li><a href="#">Widgets</a></li>
-                    <li><a href="#">Bootstrap Model</a></li>
+                <ul class="sub-menu collapse" id="resume">
+
+                    <a href="#"> <li> Upload </li> </a>
+                    <a href="#"> <li> Download </li> </a>
+
+                </ul>
+
+                <li data-toggle="collapse" data-target="#jobpost" class="collapsed">
+                    <a href="#"><i class="fa fa-paper-plane fa-lg"></i> Job Post <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="jobpost">
+
+                    <a href="#"> <li> Company </li> </a>
+                    <a href="#"> <li> Individual </li> </a>
+
                 </ul>
 
 
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                    <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                <li data-toggle="collapse" data-target="#reg" class="collapsed">
+                    <a href="#"><i class="fa fa-car fa-lg"></i> Register <span class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="service">
-                    <li>New Service 1</li>
-                    <li>New Service 2</li>
-                    <li>New Service 3</li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                    <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="new">
-                    <li>New New 1</li>
-                    <li>New New 2</li>
-                    <li>New New 3</li>
+                <ul class="sub-menu collapse" id="reg">
+                    <a href="#"> <li> Company </li> </a>
+                    <a href="#"> <li> Individual </li> </a>
                 </ul>
 
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-user fa-lg"></i> Profile
+                        <i class="fa fa-user fa-lg"></i> About Us
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-users fa-lg"></i> Users
+                        <i class="fa fa-users fa-lg"></i> Contact Us
                     </a>
                 </li>
             </ul>
@@ -410,17 +404,18 @@
                 <div class="col-lg-3 col-md-3"><!-- widgets column left -->
                     <ul class="list-unstyled clear-margins"><!-- widgets -->
                         <li class="widget-container widget_nav_menu"><!-- widgets list -->
-                            <h1 class="title-widget">Useful links</h1>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Enquiry Form</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Online Test Series</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Grand Tests Series</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Subject Wise Test Series</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Smart Book</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Test Centres</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Admission Form</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Computer Live Test</a></li>
-                            </ul>
+                            <h1 class="title-widget"> Connect with </h1>
+                            <div class="social-icons">
+
+                                <ul class="nomargin">
+
+                                    <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                                    <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                                    <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                                    <a href="mailto:abcd@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div><!-- widgets column left end -->
@@ -436,29 +431,27 @@
 
                             <div class="footerp">
 
-                                <h2 class="title-median">Webenlance Pvt. Ltd.</h2>
-                                <p><b>Email id:</b> <a href="mailto:info@qwiklync.com">info@qwiklync.com</a></p>
+                                <h2 class="title-median"> QWIKLYNC </h2>
+                               <!-- <p><b>Email id:</b> <a href="mailto:info@qwiklync.com">info@qwiklync.com</a></p>
                                 <p><b>Helpline Numbers</b> <b style="color:#ffc106;">(8AM to 6PM):</b></p>
                                 <p>+91-8130890090,</p>
-                                <p>+91-8130190010</p>
+                                <p>+91-8130190010</p> -->
 
+                                <h5> Contact Address </h5>
+                               <p>
+                                   32 Munirappa Garden, </br>
+                                   Sanjaynagar, </br>
+                                   Bangalore 560094 </br>
+                               </p>
 
-                                <p><b>Corp Office / Postal Address</b></p>
-                                <p><b>Phone Numbers : </b>1234567890, </p>
+                                <!--
+                                <p><b>Corp Office / Postal Address</b></p> -->
+                                <br><p>Phone Numbers :<br>
+                                1234567890 </p>
                                 <p> 011-123455678, 1234567890</p>
                             </div>
 
-                            <div class="social-icons">
 
-                                <ul class="nomargin">
-
-                                    <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-                                    <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-                                    <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                                    <a href="mailto:abcd@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
-
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>
