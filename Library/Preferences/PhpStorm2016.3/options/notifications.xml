@@ -1,0 +1,6 @@
+<application>
+  <component name="NotificationConfiguration">
+    <notification groupId="PHPUnit" displayType="TOOL_WINDOW" shouldReadAloud="true" />
+    <notification groupId="Web Deployment" shouldReadAloud="true" />
+  </component>
+</application>

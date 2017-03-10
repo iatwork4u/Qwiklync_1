@@ -1,4 +1,5 @@
 //Author iatwork4u
+
 (function () {
   'use strict';
   if (navigator.userAgent.match(/IEMobile\/10\.0/)) {

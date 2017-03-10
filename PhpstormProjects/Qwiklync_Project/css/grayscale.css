@@ -138,10 +138,12 @@ a:focus {
 .intro .intro-body .intro-text {
     font-size: 18px;
 }
+/* Welcome text styles */
 #weltext{
-    font-family: "Copperplate Gothic Light";
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
     font-weight: 100;
     font-size: 800%;
+    line-height: 80%;
 }
 @media (min-width: 768px) {
     .intro {
