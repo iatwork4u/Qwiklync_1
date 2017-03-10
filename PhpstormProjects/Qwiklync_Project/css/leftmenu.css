@@ -1,14 +1,14 @@
 .nav-side-menu {
-    overflow: auto;
-    font-family: verdana;
-    font-size: 12px;
+    overflow: visible;
+    font-family: Copperplate, "Copperplate Gothic Light";
+    font-size: 16px;
     font-weight: 200;
-    background-color: #2e353d;
+    background-color: transparent;
     position: fixed;
-    top: 0px;
-    width: 300px;
-    height: 100%;
-    color: #e1ffff;
+    top: 70px;
+    width: 250px;
+    height: inherit;
+    color: #ffffff;
 }
 .nav-side-menu .brand {
     background-color: #23282e;
@@ -43,7 +43,7 @@
 }
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
-    font-family: FontAwesome;
+    font-family: Copperplate, "Copperplate Gothic Light";
     content: "\f078";
     display: inline-block;
     padding-left: 10px;
@@ -66,19 +66,19 @@
 }
 .nav-side-menu ul .sub-menu li,
 .nav-side-menu li .sub-menu li {
-    background-color: #181c20;
+    background-color: transparent;
     border: none;
-    line-height: 28px;
-    border-bottom: 1px solid #23282e;
+    line-height: 30px;
+    border-bottom: 1px solid #000000;
     margin-left: 0px;
 }
 .nav-side-menu ul .sub-menu li:hover,
 .nav-side-menu li .sub-menu li:hover {
-    background-color: #020203;
+    background-color: #808080;
 }
 .nav-side-menu ul .sub-menu li:before,
 .nav-side-menu li .sub-menu li:before {
-    font-family: FontAwesome;
+    font-family: Copperplate, "Copperplate Gothic Light";
     content: "\f105";
     display: inline-block;
     padding-left: 10px;
@@ -92,7 +92,7 @@
 }
 .nav-side-menu li a {
     text-decoration: none;
-    color: #e1ffff;
+    color: #ffffff;
 }
 .nav-side-menu li a i {
     padding-left: 10px;
