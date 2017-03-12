@@ -98,6 +98,7 @@ if(!empty($_POST["submit"])) {
     <!-- /.container -->
 </nav>
 
+
 <!-- Left menu bar options Start -->
 <div class="nav-side-menu">
 
@@ -158,11 +159,7 @@ if(!empty($_POST["submit"])) {
 </div> <!-- Left menu bar End -->
 
 
-
-
-
-
-
+<!-- contact form start -->
     <form name="frmContact" method="post" action="">
     <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
 
@@ -189,7 +186,7 @@ if(!empty($_POST["submit"])) {
             </tr>
         </table>
     </form>
-
+<!-- contact form end -->
 
 
 <!-- Footer -->
