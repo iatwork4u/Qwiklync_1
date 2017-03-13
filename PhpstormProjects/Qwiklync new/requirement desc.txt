@@ -1,0 +1,10 @@
+Qwiklync job portal
+
+No of pages in first build:
+1. home page / landing page
+2. Register / sign up page
+3. login page
+4. resume upload page
+5. job post page
+6. job view page (Posted jobs list)
+

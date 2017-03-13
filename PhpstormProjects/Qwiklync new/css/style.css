@@ -18,8 +18,8 @@ body a{
 	-ms-transition:0.5s all;
 }
 .navbar-default {
-    background-color: #f15f43 !important;
-    border-color: #f15f43;
+    background-color: #276090 !important;
+    border-color: #276090;
     border-radius: 0px;
 }
 .navbar-default .navbar-nav > li > a {
@@ -40,7 +40,12 @@ body a{
 }
 .navbar-brand {
    height:100%;
-   padding:10px 15px;
+   padding:10px 30px;
+}
+#logo{
+    height: 60px;
+    width: 260px;
+    padding-left: 50px;
 }
 .navbar-nav > li > a {
    padding:10px 15px;
@@ -73,7 +78,7 @@ body a{
     font-weight: 300;
 }
 .banner{
-	background:url(../images/banner.jpg)no-repeat center top;
+	background:url(../images/introbg.jpg)no-repeat center top;
 	background-size:cover;
     -webkit-background-size:cover;
     -moz-background-size:cover;
@@ -81,7 +86,7 @@ body a{
     min-height:630px;	
 }
 .banner_1{
-	background:url(../images/banner_1.jpg)no-repeat center top;
+	background:url(../images/introbg1.jpg)no-repeat center top;
 	background-size:cover;
     -webkit-background-size:cover;
     -moz-background-size:cover;
@@ -95,7 +100,7 @@ body a{
 	margin-top:8em;
 }
 #search_form h1 {
-    color: #222f50;
+    color: #ffffff;
     font-size: 2em;
     margin-bottom: 10px;
     font-weight:400;
@@ -107,8 +112,8 @@ body a{
     padding: 8px;
     font-size: 0.85em;
     margin: 10px 0;
-    border: 1px solid #999;
-    color: #999;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
     background: none;
     outline: none;
     font-weight: 300;
@@ -2775,3 +2780,37 @@ ul.grid-1 li.grid-1_right h4, ul.grid-1 li.grid-1_left h4 {
     background-size: 184%;
 }
 }
+
+/* social media buttons in footer */
+
+#social:hover {
+    -webkit-transform:scale(1.1);
+    -moz-transform:scale(1.1);
+    -o-transform:scale(1.1);
+    color: #ffffff;
+}
+#social {
+    -webkit-transform:scale(0.8);
+    /* Browser Variations: */
+    -moz-transform:scale(0.8);
+    -o-transform:scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    color: #FFFFFF;
+
+}
+/*Only Needed in Multi-Coloured Variation*/
+.social-fb:hover {
+    color: #3B5998;
+}
+.social-tw:hover {
+    color: #4099FF;
+}
+.social-gp:hover {
+    color: #d34836;
+}
+.social-em:hover {
+    color: #f39c12;
+}
+.nomargin { margin:0px; padding:0px;}
