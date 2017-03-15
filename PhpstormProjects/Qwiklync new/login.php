@@ -1,6 +1,19 @@
+<?PHP
+require_once("include/membersite_config.php");
+
+if(isset($_POST['submitted']))
+{
+   if($fgmembersite->Login())
+{
+$fgmembersite->RedirectToURL("index.php");
+}
+}
+?>
+
 <!--
 Author: iatwork4u
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="css/font-awesome.css" rel="stylesheet">
 	<!----font-Awesome----->
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"> <!-- favicon in the tab -->
-	<!-- left menu bar -->
-	<link href="css/leftmenu.css" rel="stylesheet">
+
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -121,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                            </ul>
                        </li> -->
 				<li><a href="register.html"> Register </a></li>
-				<li><a href="login.html"> Login </a></li>
+				<li><a href="login.php"> Login </a></li>
 				<li><a href="resume.html"> Upload Resume </a></li>
 			</ul>
 		</div>
@@ -135,12 +147,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div id="search_wrapper1">
 		   <div id="search_form" class="clearfix">
-		    <h1>Start your job search</h1>
+		 <!--   <h1>Start your job search</h1>
 		    <p>
 			 <input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
 			 <input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
 			 <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"></label>
-			</p>
+			</p> -->
            </div>
 		</div>
    </div> 
@@ -213,23 +225,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     	       </div> -->
     	</div>
 	 </div>
+		<!-- Login form -->
+    <div id='fg_membersite'>
 	 <div class="col-md-8 single_right">
 	 	   <div class="login-form-section">
                 <div class="login-content">
-                    <form>
+					<form id='login' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
                         <div class="section-title">
                             <h3>LogIn to your Account</h3>
                         </div>
                         <div class="textbox-wrap">
                             <div class="input-group">
                                 <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                                <input type="text" required="required" class="form-control" placeholder="Username">
+                                <input id="username" type="text" required="required" class="form-control" placeholder="Email / Mobile no" value="<?php echo $fgmembersite->SafeDisplay('username') ?>" maxlength="128">
                             </div>
                         </div>
                         <div class="textbox-wrap">
                             <div class="input-group">
                                 <span class="input-group-addon "><i class="fa fa-key"></i></span>
-                                <input type="password" required="required" class="form-control " placeholder="Password">
+                                <input id="password" type="password" required="required" class="form-control " placeholder="Password">
                             </div>
                         </div>
                      </form>
@@ -244,11 +258,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        </div>
 					<div class="login-btn">
 					   <input type="submit" value="Log in">
-						<h5>Don't have an Account? <a href="register.html"> Register Now!</a></h5>
+						<p>Don't have an Account? <a href="register.html"> Register Now!</a></p>
 
 					</div>
+
 					<div class="login-bottom">
-				<!--	 <p>With your social media account</p>
+				<!-- <p>With your social media account</p>
 					 <div class="social-icons">
 						<div class="button">
 							<a class="tw" href="#"> <i class="fa fa-twitter tw2"> </i><span>Twitter</span>
@@ -263,19 +278,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		           </div>
                 </div>
          </div>
+		<!-- client-side Form Validations:
+		Uses the excellent form validation script from JavaScript-coder.com-->
+
+		<script type='text/javascript'>
+
+            var frmvalidator  = new Validator("login");
+            frmvalidator.EnableOnPageErrorDisplay();
+            frmvalidator.EnableMsgsTogether();
+
+            frmvalidator.addValidation("username","req","Please provide your username");
+
+            frmvalidator.addValidation("password","req","Please provide the password");
+
+		</script>
+
+    </div>
    </div>
   <div class="clearfix"> </div>
  </div>
-</div>
 
+
+<!-- Footer -->
 <div class="footer">
 	<div class="container">
 		<div class="col-md-3 grid_3">
 			<h4>Navigate</h4>
 			<ul class="f_list f_list1">
 				<li><a href="index.html">Home</a></li>
-				<li><a href="login.html">Sign In</a></li>
-				<li><a href="login.html">Join Now</a></li>
+				<li><a href="login.php">Sign In</a></li>
+				<li><a href="login.php">Join Now</a></li>
 				<li><a href="about.html">About</a></li>
 			</ul>
 			<ul class="f_list">
