@@ -1,18 +1,45 @@
 <?PHP
-require_once("include/membersite_config.php");
+/*
+Author: iatwork4u
+*/
 
-if(isset($_POST['submitted']))
-{
-   if($fgmembersite->Login())
-{
-$fgmembersite->RedirectToURL("index.php");
+include("support/config.php");
+session_start();
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    // username and password sent from form
+
+    $username = mysqli_real_escape_string($db,$_POST['username']);
+    $password = mysqli_real_escape_string($db,$_POST['password']);
+
+    $sql = "SELECT id FROM admin WHERE username = '$username' and passcode = '$password'";
+    $result = mysqli_query($db,$sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $active = $row['active'];
+
+    $count = mysqli_num_rows($result);
+
+    // If result matched $email and $password, table row must be 1 row
+
+    if($count == 1) {
+        session_start("username");
+        $_SESSION['login_user'] = $username;
+
+        header("location: index.html");
+    }else {
+        $error = "Your Login Name or Password is invalid";
+    }
 }
+?>
+<!-- Logout session -->
+<?php
+session_start();
+
+if(session_destroy()) {
+    header("Location: login.php");
 }
 ?>
 
-<!--
-Author: iatwork4u
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -230,14 +257,14 @@ Author: iatwork4u
 	 <div class="col-md-8 single_right">
 	 	   <div class="login-form-section">
                 <div class="login-content">
-					<form id='login' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
+					<form id='login' action='' method='post' accept-charset='UTF-8'>
                         <div class="section-title">
                             <h3>LogIn to your Account</h3>
                         </div>
                         <div class="textbox-wrap">
                             <div class="input-group">
                                 <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                                <input id="username" type="text" required="required" class="form-control" placeholder="Email / Mobile no" value="<?php echo $fgmembersite->SafeDisplay('username') ?>" maxlength="128">
+                                <input id="username" type="text" required="required" class="form-control" placeholder="Email " value="<?php echo $fgmembersite->SafeDisplay('username') ?>" maxlength="128">
                             </div>
                         </div>
                         <div class="textbox-wrap">

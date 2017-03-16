@@ -1,12 +1,59 @@
-<?PHP
-require_once("include/membersite_config.php");
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $class = $course = $subject = "";
 
-if(isset($_POST['submitted'])) {
-    if ($fgmembersite->RegisterUser()) {
-        $fgmembersite->RedirectToURL("thank-you.html");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+    }else {
+        $name = test_input($_POST["name"]);
+    }
+
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    }else {
+        $email = test_input($_POST["email"]);
+
+        // check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+    }
+
+    if (empty($_POST["course"])) {
+        $course = "";
+    }else {
+        $course = test_input($_POST["course"]);
+    }
+
+    if (empty($_POST["class"])) {
+        $class = "";
+    }else {
+        $class = test_input($_POST["class"]);
+    }
+
+    if (empty($_POST["gender"])) {
+        $genderErr = "Gender is required";
+    }else {
+        $gender = test_input($_POST["gender"]);
+    }
+
+    if (empty($_POST["subject"])) {
+        $subjectErr = "You must select 1 or more";
+    }else {
+        $subject = $_POST["subject"];
     }
 }
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
+
 
 <!--
 Author: iatwork4u
@@ -166,15 +213,15 @@ Author: iatwork4u
 	   <div class="form-container">
         <h2>Register Form</h2>
 
-            <form id='register' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
+            <form id='register' action='' method='post' accept-charset='UTF-8'>
 
-                <div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+                <div><span class='error'> </span></div>
 
           <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="name">Full Name</label>
                 <div class="col-md-9">
-                    <input type="text" path="name" class="form-control input-sm" id='name' name='name' value='<?php echo $fgmembersite->SafeDisplay('name') ?>' maxlength="50"/>
+                    <input type="text" path="name" class="form-control input-sm" id='name' name='name' >
                 </div>
             </div>
          </div>
@@ -183,7 +230,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="mobno">Mobile Number</label>
                 <div class="col-md-9">
-                    <input type="text" path="mobno" id="mobno" class="form-control input-sm" name='mobno' value='<?php echo $fgmembersite->SafeDisplay('mobno') ?>' maxlength="50"/>
+                    <input type="text" path="mobno" id="mobno" class="form-control input-sm" name='mobno' >
                 </div>
             </div>
         </div>
@@ -211,7 +258,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="email">Email</label>
                 <div class="col-md-9">
-                    <input type="email" path="email" class="form-control input-sm" name='email' id='email' value='<?php echo $fgmembersite->SafeDisplay('email') ?>' maxlength="50"/>
+                    <input type="email" path="email" class="form-control input-sm" name='email' id='email' >
                 </div>
             </div>
         </div>
@@ -219,7 +266,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="country">Country</label>
                 <div class="col-md-9">
-                    <select path="country" id="country" class="form-control input-sm" name='country' value='<?php echo $fgmembersite->SafeDisplay('country') ?>'>
+                    <select path="country" id="country" class="form-control input-sm" name='country' >
                             <option value="AF">Select your Country</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
@@ -479,7 +526,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="country">Work Experience</label>
                 <div class="col-md-9">
-                    <select path="exp" id="exp" class="form-control input-sm" name='exp' value='<?php echo $fgmembersite->SafeDisplay('exp') ?>' >
+                    <select path="exp" id="exp" class="form-control input-sm" name='exp' >
                         <option value="">Select you Work Experience</option>
                         <option value="">Fresher</option>
                         <option value="">0</option>
@@ -507,7 +554,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="country">Educational Qualification </label>
                 <div class="col-md-9">
-                    <select path="edu" id="edu" class="form-control input-sm" name='edu' value='<?php echo $fgmembersite->SafeDisplay('edu') ?>' >
+                    <select path="edu" id="edu" class="form-control input-sm" name='edu' >
                         <option value="">Select your Educational Qualification</option>
                         <option value="">Bsc</option>
                         <option value="">BE / BTech</option>
