@@ -21,9 +21,9 @@ Author: iatwork4u
 	<title>Qwiklync | Login </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Seeking Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <meta name="description" content="Qwiklync login page">
+    <meta name="author" content="Iatwork4u">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery.min.js"></script>
@@ -132,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                <li><a href="jobs.html">Defence Jobs</a></li>
                            </ul>
                        </li> -->
-				<li><a href="register.html"> Register </a></li>
+				<li><a href="register.php"> Register </a></li>
 				<li><a href="login.php"> Login </a></li>
 				<li><a href="resume.html"> Upload Resume </a></li>
 			</ul>
@@ -258,7 +258,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        </div>
 					<div class="login-btn">
 					   <input type="submit" value="Log in">
-						<p>Don't have an Account? <a href="register.html"> Register Now!</a></p>
+						<p>Don't have an Account? <a href="register.php"> Register Now!</a></p>
 
 					</div>
 
@@ -287,7 +287,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             frmvalidator.EnableOnPageErrorDisplay();
             frmvalidator.EnableMsgsTogether();
 
-            frmvalidator.addValidation("username","req","Please provide your username");
+            frmvalidator.addValidation("username","req","Please provide your Email or Mobile no");
 
             frmvalidator.addValidation("password","req","Please provide the password");
 
@@ -307,7 +307,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<ul class="f_list f_list1">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="login.php">Sign In</a></li>
-				<li><a href="login.php">Join Now</a></li>
+                <li><a href="register.php">Join Now</a></li>
 				<li><a href="about.html">About</a></li>
 			</ul>
 			<ul class="f_list">
@@ -323,10 +323,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="social-icons">
 
 				<ul class="nomargin">
-					<a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-					<a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-					<a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-					<a href="mailto:abcd@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+					<a href="https://www.facebook.com/qwiklyn/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+					<a href="https://twitter.com/Qwiklync"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+					<a href="https://plus.google.com/u/0/100640649378538958542?hl=en"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+					<a href="https://www.linkedin.com/company-beta/13197934/?pathWildcard=13197934"><i class="fa fa-linkedin-square fa-3x social-li" id="social"></i></a>
 				</ul>
 
 			</div>

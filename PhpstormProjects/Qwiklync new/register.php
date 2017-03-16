@@ -1,3 +1,13 @@
+<?PHP
+require_once("include/membersite_config.php");
+
+if(isset($_POST['submitted'])) {
+    if ($fgmembersite->RegisterUser()) {
+        $fgmembersite->RedirectToURL("thank-you.html");
+    }
+}
+?>
+
 <!--
 Author: iatwork4u
 -->
@@ -8,8 +18,9 @@ Author: iatwork4u
 	<title>Qwiklync | Register </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Seeking Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta name="keywords" content="Qwiklync register" />
+    <meta name="description" content="Qwiklync Register">
+    <meta name="author" content="Iatwork4u">
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -24,6 +35,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"> <!-- favicon in the tab -->
 	<!-- left menu bar -->
 	<link href="css/leftmenu.css" rel="stylesheet">
+
+    <script type='text/javascript' src='js/gen_validatorv31.js'></script>
+    <script src="js/pwdwidget.js" type="text/javascript"></script>
+
+
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -119,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                <li><a href="jobs.html">Defence Jobs</a></li>
                            </ul>
                        </li> -->
-				<li><a href="register.html"> Register </a></li>
+				<li><a href="register.php"> Register </a></li>
 				<li><a href="login.php"> Login </a></li>
 				<li><a href="resume.html"> Upload Resume </a></li>
 			</ul>
@@ -133,42 +149,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div id="search_wrapper1">
 		   <div id="search_form" class="clearfix">
-		    <h1>Start your job search</h1>
+	<!--	    <h1>Start your job search</h1>
 		    <p>
 			 <input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
 			 <input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
 			 <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"></label>
-			</p>
+			</p> -->
            </div>
 		</div>
    </div> 
-</div>	
+</div>
+
+<div id='fg_membersite'>
 <div class="container">
     <div class="single">  
 	   <div class="form-container">
         <h2>Register Form</h2>
-        <form>
+
+            <form id='register' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
+
+                <div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+
           <div class="row">
             <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="firstName">First Name</label>
+                <label class="col-md-3 control-lable" for="name">Full Name</label>
                 <div class="col-md-9">
-                    <input type="text" path="firstName" id="firstName" class="form-control input-sm"/>
+                    <input type="text" path="name" class="form-control input-sm" id='name' name='name' value='<?php echo $fgmembersite->SafeDisplay('name') ?>' maxlength="50"/>
                 </div>
             </div>
          </div>
-         <div class="row">
-            <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="lastName">Last Name</label>
-                <div class="col-md-9">
-                    <input type="text" path="lastName" id="lastName" class="form-control input-sm"/>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="mobno">Mobile Number</label>
                 <div class="col-md-9">
-                    <input type="text" path="mobno" id="mobno" class="form-control input-sm"/>
+                    <input type="text" path="mobno" id="mobno" class="form-control input-sm" name='mobno' value='<?php echo $fgmembersite->SafeDisplay('mobno') ?>' maxlength="50"/>
                 </div>
             </div>
         </div>
@@ -177,9 +192,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <label class="col-md-3 control-lable" for="gender">Gender</label>
                 <div class="col-md-9" class="form-control input-sm">
                     <div class="radios">
-                        <input type="radio" name="gender" value="male" checked> Male &nbsp;
-                        <input type="radio" name="gender" value="female"> Female &nbsp;
-                        <input type="radio" name="gender" value="other"> Other
+                        <input type="radio" name="gender" id="genmale" value="male" checked> Male &nbsp;
+                        <input type="radio" name="gender" id="genfmale" value="female"> Female &nbsp;
+                        <input type="radio" name="gender" id="genoth" value="other"> Other
 	                </div>
                 </div>
             </div>
@@ -196,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="email">Email</label>
                 <div class="col-md-9">
-                    <input type="email" path="email" id="email" class="form-control input-sm"/>
+                    <input type="email" path="email" class="form-control input-sm" name='email' id='email' value='<?php echo $fgmembersite->SafeDisplay('email') ?>' maxlength="50"/>
                 </div>
             </div>
         </div>
@@ -204,8 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="country">Country</label>
                 <div class="col-md-9">
-                    <select path="country" id="country" class="form-control input-sm">
-
+                    <select path="country" id="country" class="form-control input-sm" name='country' value='<?php echo $fgmembersite->SafeDisplay('country') ?>'>
                             <option value="AF">Select your Country</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
@@ -465,7 +479,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="country">Work Experience</label>
                 <div class="col-md-9">
-                    <select path="exp" id="exp" class="form-control input-sm">
+                    <select path="exp" id="exp" class="form-control input-sm" name='exp' value='<?php echo $fgmembersite->SafeDisplay('exp') ?>' >
                         <option value="">Select you Work Experience</option>
                         <option value="">Fresher</option>
                         <option value="">0</option>
@@ -491,9 +505,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="row">
             <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="country"> </label>
+                <label class="col-md-3 control-lable" for="country">Educational Qualification </label>
                 <div class="col-md-9">
-                    <select path="edu" id="edu" class="form-control input-sm">
+                    <select path="edu" id="edu" class="form-control input-sm" name='edu' value='<?php echo $fgmembersite->SafeDisplay('edu') ?>' >
                         <option value="">Select your Educational Qualification</option>
                         <option value="">Bsc</option>
                         <option value="">BE / BTech</option>
@@ -523,6 +537,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
  </div>
 </div>
+</div>
+
+<!-- client-side Form Validations:
+Uses the excellent form validation script from JavaScript-coder.com-->
+
+<script type='text/javascript'>
+
+    var pwdwidget = new PasswordWidget('thepwddiv','password');
+    pwdwidget.MakePWDWidget();
+
+    var frmvalidator  = new Validator("register");
+    frmvalidator.EnableOnPageErrorDisplay();
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.addValidation("name","req","Please provide your name");
+
+    frmvalidator.addValidation("email","req","Please provide your email address");
+
+    frmvalidator.addValidation("email","email","Please provide a valid email address");
+
+    frmvalidator.addValidation("mobile","req","Please provide your mobile no");
+
+    frmvalidator.addValidation("dob","req","Please provide your Date Of Birth");
+
+    frmvalidator.addValidation("password","req","Please provide a password");
+
+    frmvalidator.addValidation("country","req","Please select your country");
+
+    frmvalidator.addValidation("exp","req","Please select your experience");
+
+    frmvalidator.addValidation("edu","req","Please select Educational Qualification")
+
+</script>
+
 
 <div class="footer">
 	<div class="container">
@@ -531,7 +578,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<ul class="f_list f_list1">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="login.php">Sign In</a></li>
-				<li><a href="login.php">Join Now</a></li>
+				<li><a href="register.php">Join Now</a></li>
 				<li><a href="about.html">About</a></li>
 			</ul>
 			<ul class="f_list">
@@ -546,12 +593,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h4>Follow us on</h4>
 			<div class="social-icons">
 
-				<ul class="nomargin">
-					<a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-					<a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-					<a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-					<a href="mailto:abcd@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
-				</ul>
+                <ul class="nomargin">
+                    <a href="https://www.facebook.com/qwiklyn/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                    <a href="https://twitter.com/Qwiklync"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                    <a href="https://plus.google.com/u/0/100640649378538958542?hl=en"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                    <a href="https://www.linkedin.com/company-beta/13197934/?pathWildcard=13197934"><i class="fa fa-linkedin-square fa-3x social-li" id="social"></i></a>
+                </ul>
 
 			</div>
 		</div>
