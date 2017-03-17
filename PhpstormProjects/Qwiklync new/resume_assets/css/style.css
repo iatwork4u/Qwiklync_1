@@ -325,7 +325,7 @@ section:last-child {
     animation-duration: 2.5s;
     animation-timing-function: ease-in;
 }
- /*
+
 .delayOne {
 	-webkit-animation-delay: 0, .5s;
 	-moz-animation-delay: 0, .5s;
@@ -355,7 +355,7 @@ section:last-child {
 	-moz-animation-delay: 0, 2.5s;
 	animation-delay: 0, 2.5s;
 }
-*/
+
 #footerpage{
 	font-size: smaller;
 	text-align: right;
@@ -370,5 +370,5 @@ section:last-child {
 	display: block;
 	height: 5px;
 	width: 60px;
-	margin: 0 auto;*/
+	margin: 0 auto;
 }
