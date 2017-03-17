@@ -1,13 +1,13 @@
 <?php
 // define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = "";
-$name = $email = $gender = $class = $course = $subject = "";
+$fullnameErr = $emailErr = $genderErr = $countryErr = $websiteErr = $eduErr = $expErr = $mobnoErr = "";
+$fullname = $email = $gender = $mobno = $edu = $exp = $country  =  $desc = $dob = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["name"])) {
-        $nameErr = "Name is required";
+    if (empty($_POST["fullname"])) {
+        $nameErr = "Full Name is required";
     }else {
-        $name = test_input($_POST["name"]);
+        $name = test_input($_POST["fullname"]);
     }
 
     if (empty($_POST["email"])) {
@@ -21,28 +21,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    if (empty($_POST["course"])) {
-        $course = "";
-    }else {
-        $course = test_input($_POST["course"]);
-    }
-
-    if (empty($_POST["class"])) {
-        $class = "";
-    }else {
-        $class = test_input($_POST["class"]);
-    }
-
     if (empty($_POST["gender"])) {
         $genderErr = "Gender is required";
     }else {
         $gender = test_input($_POST["gender"]);
     }
 
-    if (empty($_POST["subject"])) {
-        $subjectErr = "You must select 1 or more";
+    if (empty($_POST["mobno"])) {
+        $mobnoErr = "Enter your mobile no";
     }else {
-        $subject = $_POST["subject"];
+        $mobno = test_input($_POST["mobno"]);
+    }
+
+    if (empty($_POST["country"])) {
+        $countryErr = "Select your country";
+    }else {
+        $country = ($_POST["country"]);
+    }
+
+    if (empty($_POST["edu"])) {
+        $eduErr = "Select your Educational Qualification";
+    }else {
+        $edu = ($_POST["edu"]);
+    }
+
+    if (empty($_POST["exp"])) {
+        $expErr = "Select your Experience";
+    }else {
+        $exp = $_POST["exp"];
     }
 }
 
@@ -52,6 +58,16 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
+?>
+
+<?php
+$query = "INSERT INTO registration VALUES('','{$fullname}','{$mobno}', '{$gender}','{$dob}','{$email}', '{$country}', '{$exp}', '{$edu}', '{$desc}')";
+$result = mysqli_query($db,$query);
+if(!$result)
+{
+    die("Database query failed.");
+}
+echo "Data successfully added";
 ?>
 
 
@@ -80,8 +96,6 @@ Author: iatwork4u
 	<link href="css/font-awesome.css" rel="stylesheet">
 	<!----font-Awesome----->
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"> <!-- favicon in the tab -->
-	<!-- left menu bar -->
-	<link href="css/leftmenu.css" rel="stylesheet">
 
     <script type='text/javascript' src='js/gen_validatorv31.js'></script>
     <script src="js/pwdwidget.js" type="text/javascript"></script>
@@ -184,7 +198,7 @@ Author: iatwork4u
                        </li> -->
 				<li><a href="register.php"> Register </a></li>
 				<li><a href="login.php"> Login </a></li>
-				<li><a href="resume.html"> Upload Resume </a></li>
+                <li><a href="upload-resume.html"> Resume </a></li>
 			</ul>
 		</div>
 		<div class="clearfix"> </div>
@@ -213,7 +227,7 @@ Author: iatwork4u
 	   <div class="form-container">
         <h2>Register Form</h2>
 
-            <form id='register' action='' method='post' accept-charset='UTF-8'>
+            <form id='register' method='post' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  accept-charset='UTF-8'>
 
                 <div><span class='error'> </span></div>
 
@@ -221,7 +235,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="name">Full Name</label>
                 <div class="col-md-9">
-                    <input type="text" path="name" class="form-control input-sm" id='name' name='name' >
+                    <input type="text" path="fullname" class="form-control input-sm" id='fullname' name='fullname' >
                 </div>
             </div>
          </div>
@@ -568,9 +582,9 @@ Author: iatwork4u
         </div>
         <div class="row">
             <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="desc">Description</label>
+                <label class="col-md-3 control-lable" for="desc">Description <span>(optional) (In less than 200 words)</span></label>
                 <div class="col-md-9 sm_1">
-                   <textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"> </textarea>
+                   <textarea id="desc" name="desc" cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"> </textarea>
                     
                 </div>
             </div>
@@ -705,5 +719,6 @@ Uses the excellent form validation script from JavaScript-coder.com-->
 		</div>
 	</div>
 </div>
+
 </body>
 </html>

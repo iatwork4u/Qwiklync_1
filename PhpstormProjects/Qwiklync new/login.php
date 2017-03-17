@@ -3,7 +3,7 @@
 Author: iatwork4u
 */
 
-include("support/config.php");
+include("db-support/config.php");
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,8 +24,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($count == 1) {
         session_start("username");
         $_SESSION['login_user'] = $username;
-
-        header("location: index.html");
+//if user is valid goto resume-page.html page
+        header("location: resume-page.html");
     }else {
         $error = "Your Login Name or Password is invalid";
     }
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- Logout session -->
 <?php
 session_start();
-
+//if login fails goto login.php page
 if(session_destroy()) {
     header("Location: login.php");
 }
@@ -69,7 +69,7 @@ if(session_destroy()) {
 	<div class="container">
 	    <div class="navbar-header">
 	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
+		        <span class="sr-only"> </span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
@@ -161,7 +161,7 @@ if(session_destroy()) {
                        </li> -->
 				<li><a href="register.php"> Register </a></li>
 				<li><a href="login.php"> Login </a></li>
-				<li><a href="resume.html"> Upload Resume </a></li>
+                <li><a href="upload-resume.html"> Resume </a></li>
 			</ul>
 		</div>
 		<div class="clearfix"> </div>

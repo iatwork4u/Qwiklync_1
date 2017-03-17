@@ -5,8 +5,8 @@ SET TIME_ZONE = "+05:30";
 
 
 /* TALBEL FOR LOGIN DETAILS */
-CREATE TABLE IF NOT EXISTS `LOGIN`(
-  `id` INT(9999999) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user-login`(
+  `id` INT(10) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `mobno` INT(10) NOT NULL,
   `status` INT(1) NOT NULL,
@@ -15,14 +15,23 @@ CREATE TABLE IF NOT EXISTS `LOGIN`(
 
 
 /* TABLE FOR REGESTERED USERS */
-CREATE TABLE IF NOT EXISTS `user_registration` (
-  `user_id` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `full_name` varchar(200) NOT NULL,
-  `mob_no` varchar(180) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user-registration` (
+  `id` INT(11) NOT NULL,
+  `fullname` VARCHAR(200) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `mobno` VARCHAR(180) NOT NULL,
   `gender` VARCHAR(10) NOT NULL,
-  `country` varchar(30) NOT NULL,
-  `exp` varchar(180) NOT NULL,
-  `edu` varchar(180) NOT NULL,
+  `country` VARCHAR(30) NOT NULL,
+  `exp` VARCHAR(180) NOT NULL,
+  `edu` VARCHAR(180) NOT NULL,
   `dob` date NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=10621 DEFAULT CHARSET=latin1;
+
+/* TABLE FOR RESUME / CV */
+
+CREATE TABLE IF NOT EXISTS `user-resume` (
+  `id` INT(10) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `resume id` INT(10) NOT NULL,
+
+)
