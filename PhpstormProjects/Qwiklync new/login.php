@@ -279,7 +279,7 @@ if(session_destroy()) {
 				 			<label class="checkbox1"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
 				         </div>
 				 		  <div class="login-para">
-				 			<p><a href="#"> Forgot Password? </a></p>
+				 			<p><a href="forgot-password.php"> Forgot Password? </a></p>
 				 		 </div>
 					     <div class="clearfix"> </div>
 			        </div>
