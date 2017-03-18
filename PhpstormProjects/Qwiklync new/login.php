@@ -24,8 +24,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($count == 1) {
         session_start("username");
         $_SESSION['login_user'] = $username;
-//if user is valid goto resume-page.html page
-        header("location: resume-page.html");
+//if user is valid goto resume-page.php page
+        header("location: resume-page.php");
     }else {
         $error = "Your Login Name or Password is invalid";
     }
