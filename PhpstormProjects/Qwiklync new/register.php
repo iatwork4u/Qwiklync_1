@@ -1,18 +1,18 @@
 <?php
 // define variables and set to empty values
-$fullnameErr = $emailErr = $genderErr = $countryErr = $websiteErr = $eduErr = $expErr = $mobnoErr = "";
-$fullname = $email = $gender = $mobno = $edu = $exp = $country  =  $desc = $dob = "";
+$fullnameErr = $emailErr = $genderErr = $countryErr = $websiteErr = $eduErr = $dobErr = $expErr = $mobnoErr = $passwordErr = $cpasswordErr = false;
+$fullname = $email = $gender = $mobno = $edu = $exp = $country  =  $desc = $dob = $password = $cpassword = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["fullname"])) {
-        $nameErr = "Full Name is required";
-    }else {
-        $name = test_input($_POST["fullname"]);
+    if (!preg_match("/^[a-zA-Z ]+$/", $fullname)) {
+        $fullnameErr = "Name must contain only alphabets and space";
+    } else {
+        $fullname = test_input($_POST["fullname"]);
     }
 
     if (empty($_POST["email"])) {
         $emailErr = "Email is required";
-    }else {
+    } else {
         $email = test_input($_POST["email"]);
 
         // check if e-mail address is well-formed
@@ -21,34 +21,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    if (empty($_POST["password"])) {
+        if (strlen($password) < 6) {
+            $passwordErr = "Password must be minimum of 6 characters";
+        } else
+            $password = test_input($_POST["password"]);
+    }
+    if ($password != $cpassword) {
+        $cpasswordErr = "Password and Confirm Password doesn't match";
+    }
+
     if (empty($_POST["gender"])) {
         $genderErr = "Gender is required";
-    }else {
+    } else {
         $gender = test_input($_POST["gender"]);
     }
 
     if (empty($_POST["mobno"])) {
         $mobnoErr = "Enter your mobile no";
-    }else {
+    } else {
         $mobno = test_input($_POST["mobno"]);
     }
 
     if (empty($_POST["country"])) {
         $countryErr = "Select your country";
-    }else {
-        $country = ($_POST["country"]);
+    } else {
+        $country = test_input($_POST["country"]);
     }
 
     if (empty($_POST["edu"])) {
         $eduErr = "Select your Educational Qualification";
-    }else {
-        $edu = ($_POST["edu"]);
+    } else {
+        $edu = test_input($_POST["edu"]);
     }
 
     if (empty($_POST["exp"])) {
         $expErr = "Select your Experience";
-    }else {
-        $exp = $_POST["exp"];
+    } else {
+        $exp = test_input($_POST["exp"]);
     }
 }
 
@@ -61,13 +71,14 @@ function test_input($data) {
 ?>
 
 <?php
-$query = "INSERT INTO registration VALUES('','{$fullname}','{$mobno}', '{$gender}','{$dob}','{$email}', '{$country}', '{$exp}', '{$edu}', '{$desc}')";
+$query = "INSERT INTO user VALUES('','{$fullname}','{$mobno}', '{$gender}','{$dob}','{$email}','{$password}', '{$country}', '{$exp}', '{$edu}', '{$desc}')";
 $result = mysqli_query($db,$query);
 if(!$result)
 {
-    die("Database query failed.");
+    die("Error in registering...Please try again later!");
+}else {
+    echo " Successfully Registered! ";
 }
-echo "Data successfully added";
 ?>
 
 
@@ -227,7 +238,7 @@ Author: iatwork4u
 	   <div class="form-container">
         <h2>Register Form</h2>
 
-            <form id='register' method='post' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  accept-charset='UTF-8'>
+            <form id='register' name="register" method='post' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  accept-charset='UTF-8'>
 
                 <div><span class='error'> </span></div>
 
@@ -236,6 +247,7 @@ Author: iatwork4u
                 <label class="col-md-3 control-lable" for="name">Full Name</label>
                 <div class="col-md-9">
                     <input type="text" path="fullname" class="form-control input-sm" id='fullname' name='fullname' >
+                    <span> <?php if(isset($fullnameErr)) echo $fullnameErr;  ?></span>
                 </div>
             </div>
          </div>
@@ -245,6 +257,7 @@ Author: iatwork4u
                 <label class="col-md-3 control-lable" for="mobno">Mobile Number</label>
                 <div class="col-md-9">
                     <input type="text" path="mobno" id="mobno" class="form-control input-sm" name='mobno' >
+                    <span> <?php if(isset($mobnoErr)) echo $mobnoErr;  ?></span>
                 </div>
             </div>
         </div>
@@ -256,7 +269,9 @@ Author: iatwork4u
                         <input type="radio" name="gender" id="genmale" value="male" checked> Male &nbsp;
                         <input type="radio" name="gender" id="genfmale" value="female"> Female &nbsp;
                         <input type="radio" name="gender" id="genoth" value="other"> Other
-	                </div>
+                        <span> <?php if(isset($genderErr)) echo $genderErr;  ?></span>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -265,6 +280,7 @@ Author: iatwork4u
                 <label class="col-md-3 control-lable" for="dob">Date of birth</label>
                 <div class="col-md-9">
                     <input type="date" path="dob" id="dob" class="form-control input-sm"/>
+                    <span> <?php if(isset($dob)) echo $dobErr;  ?></span>
                 </div>
             </div>
         </div>
@@ -273,9 +289,32 @@ Author: iatwork4u
                 <label class="col-md-3 control-lable" for="email">Email</label>
                 <div class="col-md-9">
                     <input type="email" path="email" class="form-control input-sm" name='email' id='email' >
+                    <span> <?php if(isset($emailErr)) echo $emailErr;  ?></span>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="email">Email</label>
+                <div class="col-md-9">
+                    <input type="password" path="password" class="form-control input-sm" name='password' id='password' >
+                    <span> <?php if(isset($passwordErr)) echo $passwordErr;  ?></span>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="email">Email</label>
+                <div class="col-md-9">
+                    <input type="password" path="cpassword" class="form-control input-sm" name='cpassword' id='cpassword' >
+                    <span> <?php if(isset($cpasswordErr)) echo $cpasswordErr;  ?></span>
+
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="country">Country</label>
@@ -532,7 +571,8 @@ Author: iatwork4u
                             <option value="ZM">Zambia</option>
                             <option value="ZW">Zimbabwe</option>
                     </select>
-                    
+                    <span> <?php if(isset($countryErr)) echo $countryErr;  ?></span>
+
                 </div>
             </div>
         </div>
@@ -560,7 +600,8 @@ Author: iatwork4u
                         <option value="">14</option>
                         <option value="">15</option>      
                     </select>
-                    
+                    <span> <?php if(isset($expErr)) echo $expErr;  ?></span>
+
                 </div>
             </div>
         </div>
@@ -577,7 +618,8 @@ Author: iatwork4u
                         <option value="">Diploma</option> 
                         <option value="">Other</option> 
                     </select>
-               </div>
+                    <span> <?php if(isset($eduErr)) echo $eduErr;  ?></span>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -595,6 +637,7 @@ Author: iatwork4u
             </div>
         </div>
     </form>
+
     </div>
  </div>
 </div>
