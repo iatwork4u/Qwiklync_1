@@ -12,7 +12,8 @@ if(isset($_POST) & !empty($_POST)){
         $r = mysqli_fetch_assoc($res);
         $password = $r['password'];
         $to = $r['email'];
-        $subject = "Your Recovered Password";
+
+        $subject = "Qwiklync : Your Recovered Password";
 
         $message = "Please use this password to login " . $password;
         //change the mail address of sender here
@@ -28,8 +29,6 @@ if(isset($_POST) & !empty($_POST)){
     }
 }
 ?>
-
-
 
 <!--
 Author: iatwork4u
@@ -186,10 +185,12 @@ Author: iatwork4u
                 <p>Password will be sent to your registered mail id</p>
                 <p>Enter your registered mail id</p></br>
 
-                <form action="">
+                <br action="">
                     <input type="text" class="text" placeholder=" " value="Registered Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}"><br>
-                       <input type="submit" value="Get Password" id="forgotpassword">
-                    <a class="btn btn-lg btn-primary btn-block" href="login.php"> Login< /a>
+                    <input type="submit" value="Get Password" id="forgotpassword"> </br>
+
+
+                <p>Got your password!!! Go to <a href="login.php">Login</a> Page</p>
                 </form>
 
             </div>
