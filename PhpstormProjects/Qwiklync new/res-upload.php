@@ -166,12 +166,12 @@ Author: iatwork4u
 	<div class="container">
 		<div id="search_wrapper1">
 		   <div id="search_form" class="clearfix">
-		    <h1>Start your job search</h1>
+		 <!--   <h1>Start your job search</h1>
 		    <p>
 			 <input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
 			 <input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
 			 <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"></label>
-			</p>
+			</p> -->
            </div>
 		</div>
    </div> 
@@ -184,6 +184,14 @@ Author: iatwork4u
 		    <form action="">
 			  <input type="text" class="text" placeholder=" " value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}"><br>
 			  <input type="file" name="myfile">
+                <p>Only .PDF and .DOC files accepted with less than 5MB</p>
+               <!-- Progress bar start -->
+             <!--   <div class="progress">
+                    <div class="progress-bar-success" role="progressbar" aria-valuenow="70"
+                         aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                        70%
+                    </div>
+                </div> -->
 			  <input type="submit" value="Post your Resume">
 	        </form>
 	    </div>

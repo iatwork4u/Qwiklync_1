@@ -1,3 +1,24 @@
+<?php
+require 'pdf-convert-support/pdfcrowd.php';
+
+// create an API client instance
+$client = new Pdfcrowd("username", "apikey");
+
+// convert a web page and store the generated PDF into a variable
+$pdf = $client->convertHtml('pdf-convert-support/pdfcrowd.php');
+
+// set HTTP response headers
+header("Content-Type: application/pdf");
+header("Cache-Control: max-age=0");
+header("Accept-Ranges: none");
+header("Content-Disposition: attachment; filename=\"resume.pdf\"");
+
+// send the generated PDF
+echo $pdf;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +49,7 @@
 <link type="text/css" rel="stylesheet" href="resume_assets/css/style.css">
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
 
-<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
 	<![endif]-->
@@ -141,6 +162,10 @@
 <!-- resume hedding code -->
 
 <div class="line"> <h2 class="h2"> Create your Resume </h2></div>
+
+<!-- download and share options floating options bar -->
+
+
 <!-- Resume pages code start here-->
 <div id="cv" class="instaFade">
 	<div class="mainDetails">
