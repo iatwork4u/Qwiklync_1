@@ -31,3 +31,5 @@ CREATE TABLE IF NOT EXISTS `resume` (
   FOREIGN KEY (id),
   PRIMARY KEY (email)
 );
+
+/* Table to store resume data */
