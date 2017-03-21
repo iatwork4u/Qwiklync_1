@@ -1,7 +1,7 @@
 <?php
 // define variables and set to empty values
-$fullnameErr = $emailErr = $genderErr = $countryErr = $websiteErr = $eduErr = $dobErr = $expErr = $mobnoErr = $passwordErr = $cpasswordErr = false;
-$fullname = $email = $gender = $mobno = $edu = $exp = $country  =  $desc = $dob = $password = $cpassword = "";
+$fullnameErr = $emailErr = $genderErr = $countryErr = $websiteErr = $eduErr = $dobErr = $expErr = $mobnoErr = $pswErr = $cpswErr = false;
+$fullname = $email = $gender = $mobno = $edu = $exp = $country  =  $desc = $dob = $psw = $cpsw = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!preg_match("/^[a-zA-Z ]+$/", $fullname)) {
@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    if (empty($_POST["password"])) {
-        if (strlen($password) < 6) {
-            $passwordErr = "Password must be minimum of 6 characters";
+    if (empty($_POST["psw"])) {
+        if (strlen($psw) < 6) {
+            $pswErr = "Password must be minimum of 6 characters";
         } else
-            $password = test_input($_POST["password"]);
+            $psw = test_input($_POST["password"]);
     }
-    if ($password != $cpassword) {
-        $cpasswordErr = "Password and Confirm Password doesn't match";
+    if ($psw != $cpsw) {
+        $cpswErr = "Password and Confirm Password doesn't match";
     }
 
     if (empty($_POST["gender"])) {
@@ -59,6 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $expErr = "Select your Experience";
     } else {
         $exp = test_input($_POST["exp"]);
+    }
+
+    if (!empty($_POST["desc"])) {
+      $desc = test_input ($_POST["desc"]);
     }
 }
 
@@ -238,7 +242,7 @@ Author: iatwork4u
 	   <div class="form-container">
         <h2>Register Form</h2>
 
-            <form id='register' name="register" method='post' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  accept-charset='UTF-8'>
+            <form id='register' name="register" method='post' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  accept-charset='UTF-8'>
 
                 <div><span class='error'> </span></div>
 
@@ -246,7 +250,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="name">Full Name</label>
                 <div class="col-md-9">
-                    <input type="text" path="fullname" class="form-control input-sm" id='fullname' name='fullname' >
+                    <input type="text" path="fullname" class="form-control input-sm" id='fullname' name='fullname' placeholder="Enter Full Name">
                     <span> <?php if(isset($fullnameErr)) echo $fullnameErr;  ?></span>
                 </div>
             </div>
@@ -256,11 +260,12 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="mobno">Mobile Number</label>
                 <div class="col-md-9">
-                    <input type="text" path="mobno" id="mobno" class="form-control input-sm" name='mobno' >
+                    <input type="text" path="mobno" id="mobno" class="form-control input-sm" name='mobno' placeholder="Mobile Number in (+91mobileno) format" />
                     <span> <?php if(isset($mobnoErr)) echo $mobnoErr;  ?></span>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="gender">Gender</label>
@@ -279,41 +284,41 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="dob">Date of birth</label>
                 <div class="col-md-9">
-                    <input type="date" path="dob" id="dob" class="form-control input-sm"/>
+                    <input type="date" path="dob" id="dob" class="form-control input-sm" placeholder="Enter Date Of Birth"/>
                     <span> <?php if(isset($dob)) echo $dobErr;  ?></span>
                 </div>
             </div>
         </div>
-        <div class="row">
+
+         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="email">Email</label>
                 <div class="col-md-9">
-                    <input type="email" path="email" class="form-control input-sm" name='email' id='email' >
+                    <input type="email" path="email" class="form-control input-sm" name='email' id='email' placeholder="Email id" />
                     <span> <?php if(isset($emailErr)) echo $emailErr;  ?></span>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="email">Email</label>
-                <div class="col-md-9">
-                    <input type="password" path="password" class="form-control input-sm" name='password' id='password' >
-                    <span> <?php if(isset($passwordErr)) echo $passwordErr;  ?></span>
-
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="psw">Password</label>
+                        <div class="col-md-9">
+                            <input type="password" path="psw" class="form-control input-sm" name='psw' id='psw' placeholder="Password" />
+                            <span> <?php if(isset($pswErr)) echo $pswErr;  ?></span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="email">Email</label>
-                <div class="col-md-9">
-                    <input type="password" path="cpassword" class="form-control input-sm" name='cpassword' id='cpassword' >
-                    <span> <?php if(isset($cpasswordErr)) echo $cpasswordErr;  ?></span>
 
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="cpsw">Confirm Password</label>
+                        <div class="col-md-9">
+                            <input type="password" path="cpsw" class="form-control input-sm" name='cpsw' id='cpsw' placeholder="Confirm Password" />
+                            <span> <?php if(isset($cpswErr)) echo $cpswErr;  ?></span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
         <div class="row">
             <div class="form-group col-md-12">
@@ -626,7 +631,7 @@ Author: iatwork4u
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="desc">Description <span>(optional) (In less than 200 words)</span></label>
                 <div class="col-md-9 sm_1">
-                   <textarea id="desc" name="desc" cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"> </textarea>
+                   <textarea id="desc" name="desc" cols="77" rows="6" placeholder="Description about youself (Optonal)" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"> </textarea>
                     
                 </div>
             </div>
@@ -648,23 +653,21 @@ Uses the excellent form validation script from JavaScript-coder.com-->
 
 <script type='text/javascript'>
 
-    var pwdwidget = new PasswordWidget('thepwddiv','password');
-    pwdwidget.MakePWDWidget();
-
     var frmvalidator  = new Validator("register");
     frmvalidator.EnableOnPageErrorDisplay();
     frmvalidator.EnableMsgsTogether();
-    frmvalidator.addValidation("name","req","Please provide your name");
+
+    frmvalidator.addValidation("fullname","req","Please provide your name");
 
     frmvalidator.addValidation("email","req","Please provide your email address");
 
-    frmvalidator.addValidation("email","email","Please provide a valid email address");
-
-    frmvalidator.addValidation("mobile","req","Please provide your mobile no");
+    frmvalidator.addValidation("mobno","req","Please provide your mobile no");
 
     frmvalidator.addValidation("dob","req","Please provide your Date Of Birth");
 
-    frmvalidator.addValidation("password","req","Please provide a password");
+    frmvalidator.addValidation("psw","req","Please provide a password");
+
+    frmvalidator.addValidation("cpsw","req","Please provide Confirm password");
 
     frmvalidator.addValidation("country","req","Please select your country");
 
@@ -716,7 +719,7 @@ Uses the excellent form validation script from JavaScript-coder.com-->
 		</div>
 		<div class="col-md-3 grid_3">
 			<h4>Sign up for our newsletter</h4>
-			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
+		<!--	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p> -->
 			<form>
 				<input type="text" class="form-control" placeholder="Enter your email">
 				<button type="button" class="btn red">Subscribe now!</button>
