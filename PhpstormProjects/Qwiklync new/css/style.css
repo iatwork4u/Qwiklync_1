@@ -903,11 +903,11 @@ i.tw2{
 }
 /* -- following --*/
 .single h2::after, .content_bottom h3:after, .grid_1 h3:after, .about_bottom h3:after{
-    background:#f15f43;
+    background:#276090;
     content: "";
     display: block;
     height: 5px;
-    width: 60px;
+    width: 250px;
     margin: 0 auto;
 }
 .follow_jobs {
