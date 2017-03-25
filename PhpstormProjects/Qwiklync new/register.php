@@ -1,4 +1,5 @@
 <?php
+include_once ("db-support/config.php");
 // define variables and set to empty values
 $fullnameErr = $emailErr = $genderErr = $countryErr = $websiteErr = $eduErr = $dobErr = $expErr = $mobnoErr = $pswErr = $cpswErr = false;
 $fullname = $email = $gender = $mobno = $edu = $exp = $country  =  $desc = $dob = $psw = $cpsw = "";
@@ -14,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Email is required";
     } else {
         $email = test_input($_POST["email"]);
-
         // check if e-mail address is well-formed
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format";
@@ -75,7 +75,7 @@ function test_input($data) {
 ?>
 
 <?php
-$query = "INSERT INTO user VALUES('','{$fullname}','{$mobno}', '{$gender}','{$dob}','{$email}','{$password}', '{$country}', '{$exp}', '{$edu}', '{$desc}')";
+$query = "INSERT INTO user VALUES('','{$fullname}','{$mobno}', '{$gender}','{$dob}','{$email}','{$psw}', '{$country}', '{$exp}', '{$edu}', '{$desc}')";
 $result = mysqli_query($db,$query);
 if(!$result)
 {
@@ -84,7 +84,6 @@ if(!$result)
     echo " Successfully Registered! ";
 }
 ?>
-
 
 <!--
 Author: iatwork4u
