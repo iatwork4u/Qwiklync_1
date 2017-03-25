@@ -12,8 +12,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($db,$_POST['username']);
     $password = mysqli_real_escape_string($db,$_POST['password']);
 
-    $sql = "SELECT id FROM admin WHERE username = '$username' and passcode = '$password'";
-    $result = mysqli_query($db,$sql);
+    $query=mysqli_query("SELECT * FROM users WHERE password ='$password' AND (username = '$email' OR mobno = '$uname') AND pwd='$password' ");
+
+    $result = mysqli_query($db,$query);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $active = $row['active'];
 
@@ -31,6 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!-- Logout session -->
 <?php
 session_start();
@@ -40,12 +42,11 @@ if(session_destroy()) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-	<title>Qwiklync | Login </title>
+	<title> Qwiklync | Login </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Qwiklync login page">
@@ -264,7 +265,7 @@ if(session_destroy()) {
                         <div class="textbox-wrap">
                             <div class="input-group">
                                 <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                                <input id="username" type="text" required="required" class="form-control" placeholder="Email " value="<?php echo $fgmembersite->SafeDisplay('username') ?>" maxlength="128">
+                                <input id="username" type="text" required="required" class="form-control" placeholder="Email / Mobile no" value="<?php echo $fgmembersite->SafeDisplay('username') ?>" maxlength="128">
                             </div>
                         </div>
                         <div class="textbox-wrap">

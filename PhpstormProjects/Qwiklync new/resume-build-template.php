@@ -1,3 +1,34 @@
+<!-- inline resume editing php code -->
+<?php
+
+if(!empty($_POST))
+{
+    /* database settings */
+    include "db-support/config.php";
+    foreach($_POST as $field_name => $val)
+    {
+    //clean post values
+    $field_userid = strip_tags(trim($field_name));
+    $val = strip_tags(trim(mysqli_real_escape_string($val)));
+
+    //from the fieldname:user_id we need to get user_id
+    $split_data = explode(':', $field_userid);
+    $user_id = $split_data[1];
+    $field_name = $split_data[0];
+    if(!empty($user_id) && !empty($field_name) && !empty($val))
+    {
+        //update the values
+        mysqli_query("UPDATE user_details SET $field_name = '$val' WHERE user_id = $user_id") or mysqli_error();
+
+        echo "Updated";
+    } else {
+    echo "Invalid Requests";
+    }
+    }
+} else {
+echo "Invalid Requests";
+}
+?>
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
@@ -26,7 +57,6 @@
     <!-- left menu bar -->
     <link href="css/leftmenu.css" rel="stylesheet">
 
-
     <!-- Global CSS -->
     <link rel="stylesheet" href="resume_build/assets/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Plugins CSS -->
@@ -41,28 +71,24 @@
     <![endif]-->
 </head> 
 
-<div>
-
-
-
-
+<body>
 <!-- Resume code start here -->
     <div class="wrapper">
         <div class="sidebar-wrapper">
             <div class="profile-container">
-                <img class="profile" src="resume_build/assets/images/profile.png" alt="" />
-                <h1 class="name">NAME</h1>
-                <h3 class="tagline"> DESIGNATION </h3>
+                <img class="profile img-circle img-responsive" src="resume_build/assets/images/user.png" alt=""  />
+                <h1 class="name" contenteditable="false">NAME</h1>
+                <h3 class="tagline" contenteditable="true"> DESIGNATION </h3>
             </div><!--//profile-container-->
             
             <div class="contact-container container-block">
                 <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto: yourname@email.com">yourname@email.com</a></li>
-                    <li class="phone"><i class="fa fa-phone"></i><a href="tel:0123 456 789">0123 456 789</a></li>
-                    <li class="website"><i class="fa fa-globe"></i><a href="#" target="_blank">www.portfoliosite.com</a></li>
-             <!--       <li class="linkedin"><i class="fa fa-linkedin"></i><a href="#" target="_blank">linkedin.com/in/alandoe</a></li>
-                    <li class="github"><i class="fa fa-github"></i><a href="#" target="_blank">github.com/username</a></li>
-                    <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li> -->
+                    <li class="email" contenteditable="true"><i class="fa fa-envelope" contenteditable="true"></i> yourname@email.com</a></li>
+                    <li class="phone" contenteditable="true"><i class="fa fa-phone" contenteditable="true"></i> 0123 456 789</a></li>
+                    <li class="website" contenteditable="true"><i class="fa fa-globe" contenteditable="true"></i> www.portfoliosite.com</a></li>
+                    <li class="linkedin" contenteditable="true"><i class="fa fa-linkedin" contenteditable="true"></i>linkedin profile</a></li>
+                    <li class="github" contenteditable="true"><i class="fa fa-github" contenteditable="true"></i>github.com/username</a></li>
+                <!--    <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li> -->
                 </ul>
             </div><!--//contact-container-->
 
@@ -70,9 +96,9 @@
             <div class="address-container container-block">
                 <h2 class="container-block-title">Address</h2>
                 <div class="item">
-                    <h4 class="degree">House no/name,</h4>
-                    <h5 class="meta">Street name </h5>
-                    <div class="time">Place - Pincode</div>
+                    <h4 class="degree" contenteditable="true">House no/name,</h4>
+                    <h5 class="meta" contenteditable="true">Street name </h5>
+                    <div class="time" contenteditable="true">Place - Pincode</div>
                 </div><!--//item-->
 
             </div><!--//education-container-->
@@ -80,20 +106,20 @@
             <div class="education-container container-block">
                 <h2 class="container-block-title">Education</h2>
                 <div class="item">
-                    <h4 class="degree">DEGREE</h4>
-                    <h5 class="meta">University </h5>
-                    <div class="time">YEAR</div>
+                    <h4 class="degree" contenteditable="true">DEGREE</h4>
+                    <h5 class="meta"contenteditable="true">University </h5>
+                    <div class="time" contenteditable="true">YEAR</div>
                 </div><!--//item-->
                 <div class="item">
-                    <h4 class="degree">DEGREE</h4>
-                    <h5 class="meta">University</h5>
-                    <div class="time">YEAR</div>
+                    <h4 class="degree" contenteditable="true">DEGREE</h4>
+                    <h5 class="meta" contenteditable="true">University</h5>
+                    <div class="time" contenteditable="true">YEAR</div>
                 </div><!--//item-->
             </div><!--//education-container-->
             
             <div class="languages-container container-block">
                 <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
+                <ul class="list-unstyled interests-list" contenteditable="true">
                     <li>LANG 1 <span class="lang-desc">(READ/WRITE/SPEAK)</span></li>
                     <li>LANG 2 <span class="lang-desc">(READ/WRITE/SPEAK)</span></li>
                     <li>LANG 3 <span class="lang-desc">(READ/WRITE/SPEAK)</span></li>
@@ -104,7 +130,7 @@
             
             <div class="interests-container container-block">
                 <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
+                <ul class="list-unstyled interests-list" contenteditable="true">
                     <li>HOBBY 1</li>
                     <li>HOBBY 2</li>
                     <li>HOBBY 3</li>
@@ -114,89 +140,108 @@
         </div><!--//sidebar-wrapper-->
         
         <div class="main-wrapper">
-            
+
             <section class="section summary-section">
-                <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
-                <div class="summary">
-                    <p>Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can <a href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers/" target="_blank">download this free resume/CV template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
+                <h2 class="section-title" contenteditable="false"><i class="fa fa-arrows"></i>OBJECTIVE</h2>
+                <div class="objective" contenteditable="true">
+                    <p>Summarise your objective here </p>
+                </div><!--//summary-->
+            </section><!--//section-->
+
+            <section class="section summary-section">
+                <h2 class="section-title" contenteditable="false"><i class="fa fa-user"></i>Career Profile</h2>
+                <div class="summary" contenteditable="true">
+                    <p>Summarise your career here </p>
                 </div><!--//summary-->
             </section><!--//section-->
             
             <section class="section experiences-section">
                 <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
-                
+
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
-                            <h3 class="job-title">Lead Developer</h3>
-                            <div class="time">2015 - Present</div>
+                            <h3 class="job-title" contenteditable="true">Designation</h3>
+                            <div class="time" contenteditable="true">from - to</div>
                         </div><!--//upper-row-->
-                        <div class="company">Startup Hubs, San Francisco</div>
+                        <div class="company" contenteditable="true">company, location</div>
                     </div><!--//meta-->
-                    <div class="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo.</p>  
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+                    <div class="details" contenteditable="true">
+                        <p>
+                            Describe your role here
+                        </p>
                     </div><!--//details-->
                 </div><!--//item-->
                 
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
-                            <h3 class="job-title">Senior Software Engineer</h3>
-                            <div class="time">2014 - 2015</div>
+                            <h3 class="job-title" contenteditable="true">Designation</h3>
+                            <div class="time" contenteditable="true">from - to</div>
                         </div><!--//upper-row-->
-                        <div class="company">Google, London</div>
+                        <div class="company" contenteditable="true">company, location</div>
                     </div><!--//meta-->
-                    <div class="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>  
-                        
+                    <div class="details" contenteditable="true">
+                        <p>
+                            Describe your role here
+                        </p>
                     </div><!--//details-->
                 </div><!--//item-->
-                
+
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
-                            <h3 class="job-title">UI Developer</h3>
-                            <div class="time">2012 - 2014</div>
+                            <h3 class="job-title" contenteditable="true">Designation</h3>
+                            <div class="time" contenteditable="true">from - to</div>
                         </div><!--//upper-row-->
-                        <div class="company">Amazon, London</div>
+                        <div class="company" contenteditable="true">company, location</div>
                     </div><!--//meta-->
-                    <div class="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                            pellentesque eu, pretium quis, sem.</p>
+                    <div class="details" contenteditable="true">
+                        <p>
+                            Describe your role here
+                        </p>
                     </div><!--//details-->
                 </div><!--//item-->
                 
             </section><!--//section-->
             
-            <section class="section projects-section">
-                <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
-                <div class="intro">
-                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+            <section class="section projects-section" contenteditable="true">
+                <h2 class="section-title" contenteditable="false"><i class="fa fa-archive"></i>Projects</h2>
+                <div class="intro" contenteditable="true">
+                    <p>You can list your side projects or open source libraries in this section.</p>
                 </div><!--//intro-->
+
                 <div class="item">
-                    <span class="project-title"><a href="#hook">Velocity</a></span> - <span class="project-tagline">A responsive website template designed to help startups promote, market and sell their products.</span>
-                    
+                    <span class="project-title"><a href="">Project title</a></span> -
+                    <span class="project-tagline">Description about your project in 2-3 lines</span>
                 </div><!--//item-->
+
+
                 <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-web-development-agencies-devstudio/" target="_blank">DevStudio</a></span> - 
-                    <span class="project-tagline">A responsive website template designed to help web developers/designers market their services. </span>
+                    <span class="project-title"><a href="">Project title</a></span> -
+                    <span class="project-tagline">Description about your project in 2-3 lines</span>
                 </div><!--//item-->
+
                 <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-startups-tempo/" target="_blank">Tempo</a></span> - <span class="project-tagline">A responsive website template designed to help startups promote their products or services and to attract users &amp; investors</span>
+                    <span class="project-title"><a href="">Project title</a></span> -
+                    <span class="project-tagline">Description about your project in 2-3 lines</span>
                 </div><!--//item-->
+
                 <div class="item">
-                    <span class="project-title"><a href="hhttp://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-mobile-apps-atom/" target="_blank">Atom</a></span> - <span class="project-tagline">A comprehensive website template solution for startups/developers to market their mobile apps. </span>
+                    <span class="project-title"><a href="">Project title</a></span> -
+                    <span class="project-tagline">Description about your project in 2-3 lines</span>
                 </div><!--//item-->
+
                 <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-mobile-apps-delta/" target="_blank">Delta</a></span> - <span class="project-tagline">A responsive Bootstrap one page theme designed to help app developers promote their mobile apps</span>
+                    <span class="project-title"><a href="">Project title</a></span> -
+                    <span class="project-tagline">Description about your project in 2-3 lines</span>
                 </div><!--//item-->
+
             </section><!--//section-->
 
             <section class="skills-section section">
-                <h2 class="section-title"><i class="fa fa-rocket"></i>Skills</h2>
-                <div class="skillset">        
+                <h2 class="section-title" contenteditable="false"><i class="fa fa-rocket"></i>Skills</h2>
+                <div class="skillset" contenteditable="true">
                   <table>
 
                       <tr>
@@ -251,31 +296,6 @@
                           </td>
                       </tr>
 
-                      <tr>
-                          <td>
-                              <div class="item">
-                                  <h3 class="level-title">Skill </h3>
-                              </div><!--//item-->
-                          </td>
-
-                          <td>
-                              <div class="item">
-                                  <h3 class="level-title">Skill </h3>
-                              </div><!--//item-->
-                          </td>
-
-                          <td>
-                              <div class="item">
-                                  <h3 class="level-title">Skill </h3>
-                              </div><!--//item-->
-                          </td>
-
-                          <td>
-                              <div class="item">
-                                  <h3 class="level-title">Skill </h3>
-                              </div><!--//item-->
-                          </td>
-                      </tr>
 
                   </table>
                 </div>  
@@ -450,6 +470,31 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     </div>
+
+<!-- jquery for resume  -->
+<script>
+
+    $(function(){
+        //acknowledgement message
+        var message_status = $("#status");
+        $("td[contenteditable=true]").blur(function(){
+            var field_userid = $(this).attr("id") ;
+            var value = $(this).text() ;
+            $.post('ajax.php' , field_userid + "=" + value, function(data){
+                if(data != '')
+                {
+                    message_status.show();
+                    message_status.text(data);
+
+                    //hide the message
+                    setTimeout(function(){message_status.hide()},3000);
+                }
+            });
+        });
+    });
+
+
+</script>
 
 </body>
 </html>
