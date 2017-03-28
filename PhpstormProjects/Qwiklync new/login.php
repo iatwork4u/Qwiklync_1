@@ -183,44 +183,44 @@ if(session_destroy()) {
 			</p> -->
            </div>
 		</div>
-   </div> 
-</div>	
+   </div>
+</div>
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="col-md-4">
 	   	  <div class="col_3">
 	<!--   	  	<h3>Todays Jobs</h3>
 	   	  	<ul class="list_1">
 	   	  		<li><a href="#">Department of Health - Western Australia</a></li>
-	   	  		<li><a href="#">Australian Nursing Agency currently require experiences</a></li>		
+	   	  		<li><a href="#">Australian Nursing Agency currently require experiences</a></li>
 	   	  		<li><a href="#">Russia Nursing Agency currently require experiences</a></li>
-	   	  		<li><a href="#">The Government of Western Saudi Arbia</a></li>		
+	   	  		<li><a href="#">The Government of Western Saudi Arbia</a></li>
 	   	  		<li><a href="#">Department of Health - Western Australia</a></li>
-	   	  		<li><a href="#">Australian Nursing Agency currently require experiences</a></li>		
+	   	  		<li><a href="#">Australian Nursing Agency currently require experiences</a></li>
 	   	  		<li><a href="#">Russia Nursing Agency currently require experiences</a></li>
-	   	  		<li><a href="#">The Scientific Publishing Services in Saudi Arbia</a></li>	
-	   	  		<li><a href="#">BPO Private Limited in Canada</a></li>		
+	   	  		<li><a href="#">The Scientific Publishing Services in Saudi Arbia</a></li>
+	   	  		<li><a href="#">BPO Private Limited in Canada</a></li>
 	   	  		<li><a href="#">Executive Tracks Associates in Pakistan</a></li>
-	   	  		<li><a href="#">Pyramid IT Consulting Pvt. Ltd. in Pakistan</a></li>						
+	   	  		<li><a href="#">Pyramid IT Consulting Pvt. Ltd. in Pakistan</a></li>
 	   	  	</ul>
 	   	  </div>
 	   	  <div class="col_3">
 	   	  	<h3>Jobs by Category</h3>
 	   	  	<ul class="list_2">
 	   	  		<li><a href="#">Railway Recruitment</a></li>
-	   	  		<li><a href="#">Air Force Jobs</a></li>		
+	   	  		<li><a href="#">Air Force Jobs</a></li>
 	   	  		<li><a href="#">Police Jobs</a></li>
-	   	  		<li><a href="#">Intelligence Bureau Jobs</a></li>		
+	   	  		<li><a href="#">Intelligence Bureau Jobs</a></li>
 	   	  		<li><a href="#">Army Jobs</a></li>
-	   	  		<li><a href="#">Navy Jobs</a></li>		
+	   	  		<li><a href="#">Navy Jobs</a></li>
 	   	  		<li><a href="#">BSNL Jobs</a></li>
-	   	  		<li><a href="#">Software Jobs</a></li>	
-	   	  		<li><a href="#">Research Jobs</a></li>								
+	   	  		<li><a href="#">Software Jobs</a></li>
+	   	  		<li><a href="#">Research Jobs</a></li>
 	   	  	</ul>
 	   	  </div>
 	   	  <div class="widget">
 	        <h3>Take The Seeking Poll!</h3>
-    	        <div class="widget-content"> 
+    	        <div class="widget-content">
                  <div class="seeking-answer">
 			    	<span class="seeking-answer-group">
 		    			<span class="seeking-answer-input">
@@ -341,7 +341,7 @@ if(session_destroy()) {
 			<ul class="f_list">
 				<li><a href="features.html">Features</a></li>
 				<li><a href="terms.html">Terms of use</a></li>
-				<li><a href="contact.html">Contact Us</a></li>
+				<li><a href="contact.php">Contact Us</a></li>
 				<li><a href="jobs.html">Post a Job</a></li>
 			</ul>
 			<div class="clearfix"> </div>

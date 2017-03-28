@@ -1,3 +1,27 @@
+<?php
+if(!empty($_POST["submit"])) {
+    $name = $_POST["userName"];
+    $email = $_POST["userEmail"];
+    $mobno = $_POST["mobno"];
+    $content = $_POST["content"];
+
+    /* saving contact form to sql */
+    /*	$conn = mysql_connect("localhost","root","");
+        mysql_select_db("phppot_examples",$conn);
+        mysql_query("INSERT INTO tblcontact (user_name, user_email,subject,content) VALUES ('" . $name. "', '" . $email. "','" . $subject. "','" . $content. "')");
+        $insert_id = mysql_insert_id();
+        if(!empty($insert_id)) {
+        $message = "Your contact information is saved successfully"; }*/
+
+	/* Sending contact form to email */
+	$toEmail = "connect@qwiklync.com";
+	$mailHeaders = "From: " . $_POST["userName"] . "<". $email .">\r\n";
+	if(mail($toEmail, $mobno, $content, $mailHeaders)) {
+	$message = "Your contact information is received successfully";
+		}
+}
+?>
+
 <!--
 Author: iatwork4u
 -->
@@ -5,7 +29,7 @@ Author: iatwork4u
 <html lang="en">
 <head>
 
-	<title>Qwiklync | Home </title>
+	<title>Qwiklync | Contact Us </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Qwiklync Contact us page">
@@ -57,16 +81,16 @@ Author: iatwork4u
 					<li class="dropdown-header">Select your option</li>
 					<li><a href="job-post.html">Recruiter</a></li>
 					<li><a href="job-post.html">Individual</a></li>
-					<!--	<li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li> -->
+				<!--	<li><a href="#">Something else here</a></li>
+					<li><a href="#">Separated link</a></li>
+					<li><a href="#">One more separated link</a></li> -->
 				</ul>
 			</li>
 			<li>
 				<a href="#">Services</a>
 			</li>
 			<li>
-				<a href="contact.php">Contact</a>
+				<a href="contact.html">Contact</a>
 			</li>
 			<li>
 				<a href="https://twitter.com/Qwiklync">Follow me</a>
@@ -129,26 +153,145 @@ Author: iatwork4u
 		</nav>
 		<!-- Top nav bar End -->
 
-
-		<!-- Page content start -->
 		<!-- Banner start -->
-		<div class="banner">
+		<div id="main1" class="banner_1">
 			<div class="container">
-				<div id="search_wrapper">
-					<div id="search_form" class="clearfix">
-
-						<div align="center">
-							<div style="font-size:40px; color:#ffffff">
-								<p> Still Not a Member???</p>
-								<p>Register now!!! Its Free!!</p>
-							</div>
-							<label class="btn2 btn-2 btn2-1b"><input type="submit" formaction="register.php" value="Register"></label>
-						</div>
-					</div>
+				<div id="search_wrapper1">
+				<!--	<div id="search_form" class="clearfix">
+						<h1>Start your job search</h1>
+						<p>
+							<input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
+							<input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
+							<label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"></label>
+						</p>
+					</div> -->
 				</div>
 			</div>
-		</div>		<!-- banner end -->
+		</div>
+		<!-- banner end -->
+		<!-- Page content start -->
+		<div class="container">
+			<div class="single">
+				<div class="contact_top">
+					<h2>Our Addresses</h2>
+
+					<!-- Address 1 -->
+				<!--	<div class="col-sm-4">
+						<address class="addr">
+							<p class="secondary3">
+								8901 Marmora Road, <br>
+								Glasgow, D04 89GR.</p>
+							<dl>
+								<dt>Freephone:</dt>
+								<dd>
+									+1 2587 4677 236
+								</dd>
+							</dl>
+							<dl>
+								<dt>Telephone:</dt>
+								<dd>
+									+1 2587 4677 236
+								</dd>
+							</dl>
+							<dl>
+								<dt>FAX:</dt>
+								<dd>
+									+1 2587 4677 236
+								</dd>
+							</dl>
+							<dl class="email">
+								<dt>E-mail:</dt>
+								<dd>
+									<a href="malito:mail@demolink.org">mail(at)Seeking.com</a>
+								</dd>
+							</dl>
+						</address>
+					</div>  -->
+
+					<!-- Address 2 center -->
+					<div class="col-sm-12" align="center">
+						<address class="addr" align="center">
+							<p class="secondary3">
+							<h3 style="color: #2a6496"> Imkwik Internet Pvt Ltd.</h3> <br>
+							32 Munirappa Garden, Sanjaynagar RMV post,
+							2nd stage, Bangalore - 560 094 </br>
+							Karnataka, India</p>
+							<div>
+								<dt>Mobile:</dt>
+								<dd>
+									+91 90080 25252
+								</dd>
+							</div>
+
+							<div class="email">
+								<dt>E-mail:</dt>
+								<dd>
+									<a href="connect@qwiklync.com">connect@qwiklync.com</a>
+								</dd>
+							</div>
+						</address>
+					</div>
+
+					<!-- Address 3 -->
+				<!--	<div class="col-sm-4">
+						<address class="addr">
+							<p class="secondary3">
+								578 Marmora Road, <br>
+								Lorem Ipsum, D04 89GR.</p>
+							<dl>
+								<dt>Freephone:</dt>
+								<dd>
+									+1 2587 4677 236
+								</dd>
+							</dl>
+							<dl>
+								<dt>Telephone:</dt>
+								<dd>
+									+1 2587 4677 236
+								</dd>
+							</dl>
+							<dl>
+								<dt>FAX:</dt>
+								<dd>
+									+1 2587 4677 236
+								</dd>
+							</dl>
+							<dl class="email">
+								<dt>E-mail:</dt>
+								<dd>
+									<a href="malito:mail@demolink.org">mail(at)Seeking.com</a>
+								</dd>
+							</dl>
+						</address>
+					</div> -->
+					<div class="clearfix"> </div>
+				</div>
+				<div class="content_bottom">
+					<h3>Contact Form</h3>
+					<form>
+						<div class="contact_box1">
+							<input type="text" class="text" name="userName" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+							<input type="text" class="text" name="userEmail" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:3%">
+							<input type="text" class="text" name="mobno" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}" style="margin-left:3%">
+						</div>
+						<div class="text_1">
+							<textarea value="Message" name="content" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+						</div>
+						<div class="form-submit1 form_but1">
+							<input name="submit" type="submit" name="submit" id="submit" value="Submit"><br>
+						</div>
+						<div class="clearfix"></div>
+					</form>
+				</div>
+			</div>
+		</div>
 		<!-- Page content end -->
+
+		<!-- Map plugin End-->
+		<div id="main2" class="map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150859.767904157!2d-96.62081048651531!3d39.536794757966845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1408111832978"> </iframe>
+		</div>
+		<!-- Map plugin end -->
 
 		<!-- Footer start -->
 		<div id="main3" class="footer">
@@ -164,7 +307,7 @@ Author: iatwork4u
 					<ul class="f_list">
 						<li><a href="features.html">Features</a></li>
 						<li><a href="terms.html">Terms of use</a></li>
-						<li><a href="contact.php">Contact Us</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
 						<li><a href="jobs.html">Post a Job</a></li>
 					</ul>
 					<div class="clearfix"> </div>
