@@ -37,10 +37,10 @@ Author: iatwork4u
 <html lang="en">
 <head>
 
-    <title>Qwiklync | Contact Us </title>
+    <title>Qwiklync | Forgot Password </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Qwiklync Contact us page">
+    <meta name="description" content="Qwiklync Forgot password page">
     <meta name="author" content="Iatwork4u">
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
@@ -68,7 +68,7 @@ Author: iatwork4u
         <ul class="nav sidebar-nav">
             <li class="sidebar-brand">
                 <a href="#">
-                    Brand
+                    Qwiklync
                 </a>
             </li>
             <li>
