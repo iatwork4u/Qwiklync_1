@@ -17,7 +17,6 @@
 
    echo 'Connected successfully';
 
-   mysqli_select_db( 'quiklync' );
    mysqli_close($db);
 
 ?>

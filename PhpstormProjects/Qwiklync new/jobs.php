@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "test", "test", "test");
+$connect = mysqli_connect("localhost", "root", "", "qwiklync");
 $query = "SELECT * from tbl_jobs";
 $result = mysqli_query($connect, $query);
 //print_r $result;
