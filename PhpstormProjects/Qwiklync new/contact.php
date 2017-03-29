@@ -90,7 +90,7 @@ Author: iatwork4u
 				<a href="#">Services</a>
 			</li>
 			<li>
-				<a href="contact.html">Contact</a>
+				<a href="contact.php">Contact</a>
 			</li>
 			<li>
 				<a href="https://twitter.com/Qwiklync">Follow me</a>
@@ -293,95 +293,94 @@ Author: iatwork4u
 		</div>
 		<!-- Map plugin end -->
 
-		<!-- Footer start -->
-		<div id="main3" class="footer">
-			<div class="container">
-				<div class="col-md-3 grid_3">
-					<h4>Navigate</h4>
-					<ul class="f_list f_list1">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="login.php">Sign In</a></li>
-						<li><a href="login.php">Join Now</a></li>
-						<li><a href="about.html">About</a></li>
-					</ul>
-					<ul class="f_list">
-						<li><a href="features.html">Features</a></li>
-						<li><a href="terms.html">Terms of use</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="jobs.html">Post a Job</a></li>
-					</ul>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="col-md-3 grid_3">
-					<h4>Follow us on</h4>
-					<div class="social-icons">
+        <!-- Footer start -->
+        <div id="main3" class="footer">
+            <div class="container">
+                <div class="col-md-3 grid_3">
+                    <h4>Navigate</h4>
+                    <ul class="f_list f_list1">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="login.php">Sign In</a></li>
+                        <li><a href="register.php">Join Now</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                    <ul class="f_list">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="terms.html">Terms of use</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="job-post.html">Post a Job</a></li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-3 grid_3">
+                    <h4>Follow us on</h4>
+                    <div class="social-icons">
 
-						<ul class="nomargin">
-							<a href="https://www.facebook.com/qwiklyn/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-							<a href="https://twitter.com/Qwiklync"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-							<a href="https://plus.google.com/u/0/100640649378538958542?hl=en"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-							<a href="https://www.linkedin.com/company-beta/13197934/?pathWildcard=13197934"><i class="fa fa-linkedin-square fa-3x social-li" id="social"></i></a>
-						</ul>
+                        <ul class="nomargin">
+                            <a href="https://www.facebook.com/qwiklyn/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                            <a href="https://twitter.com/Qwiklync"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                            <a href="https://plus.google.com/u/0/100640649378538958542?hl=en"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                            <a href="https://www.linkedin.com/company-beta/13197934/?pathWildcard=13197934"><i class="fa fa-linkedin-square fa-3x social-li" id="social"></i></a>
+                        </ul>
 
-					</div>
-				</div>
-				<div class="col-md-3 grid_3">
-					<h4>Address</h4>
-					<p>
-						#32, Munirappa Garden,
-						Sanjaynagar,
-						Bangalore 560094
-					</p>
-				</div>
-				<div class="col-md-3 grid_3">
-					<h4>Sign up for our newsletter</h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
-					<form>
-						<input type="text" class="form-control" placeholder="Enter your email">
-						<button type="button" class="btn red">Subscribe now!</button>
-					</form>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid_3">
+                    <h4>Address</h4>
+                    <p>
+                        #32, Munirappa Garden,
+                        Sanjaynagar,
+                        Bangalore 560094
+                    </p>
+                </div>
+                <div class="col-md-3 grid_3">
+                    <h4>Sign up for our newsletter</h4>
+                    <form>
+                        <input type="text" class="form-control" placeholder="Enter your email">
+                        <button type="button" class="btn red">Subscribe now!</button>
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
 
-		<!-- lower footer -->
-		<div id="main4" class="footer_bottom">
-			<div class="container">
-				<div class="col-sm-2">
-					<!--	<ul class="f_list2">
+        <!-- lower footer -->
+        <div id="main4" class="footer_bottom">
+            <div class="container">
+                <div class="col-sm-2">
+                    <!--	<ul class="f_list2">
                                             <li><a href="jobs.html">Russia Jobs</a></li>
                                             <li><a href="jobs.html">Australia Jobs</a></li>
                                             <li><a href="jobs.html">Srilanka Jobs</a></li>
                                             <li><a href="jobs.html">Poland Jobs</a></li>
                                     </ul> -->
-				</div>
-				<div class="col-sm-2">
-					<!--	<ul class="f_list2">
+                </div>
+                <div class="col-sm-2">
+                    <!--	<ul class="f_list2">
                                             <li><a href="jobs.html">New Zealand Jobs</a></li>
                                             <li><a href="jobs.html">Pakistan Jobs</a></li>
                                             <li><a href="jobs.html">Srilanka Jobs</a></li>
                                             <li><a href="jobs.html">Irland Jobs</a></li>
                                     </ul> -->
-				</div>
-				<div class="col-sm-2">
-					<!--	<ul class="f_list2">
+                </div>
+                <div class="col-sm-2">
+                    <!--	<ul class="f_list2">
                                             <li><a href="jobs.html">Canada Jobs</a></li>
                                             <li><a href="jobs.html">Germany Jobs</a></li>
                                             <li><a href="jobs.html">China Jobs</a></li>
                                             <li><a href="jobs.html">Nepal Jobs</a></li>
                                     </ul> -->
-				</div>
-				<div class="col-sm-6 footer_text">
-					<!--  <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numqua"</p> -->
-				</div>
-				<div class="clearfix"> </div>
-				<div class="copy">
-					<p>Copyright © 2015 Qwiklync . All Rights Reserved . Design by <a href="#" target="_blank">iatwork4u</a> </p>
-				</div>
-			</div>
-		</div>
-		<!-- Footer End -->
+                </div>
+                <div class="col-sm-6 footer_text">
+                    <!--  <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numqua"</p> -->
+                </div>
+                <div class="clearfix"> </div>
+                <div class="copy">
+                    <p>Copyright © 2015 Qwiklync . All Rights Reserved . Design by <a href="#" target="_blank">iatwork4u</a> </p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
 
 	</div>
 </div>

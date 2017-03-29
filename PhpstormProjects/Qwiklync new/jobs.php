@@ -14,7 +14,7 @@ $job_desc = $row["job_desc"];
 $posted_by = $row["posted_by"];
 $company = $row["company"];
  }
- $job_date_real  = strtotime($job_date);
+$job_date_real  = strtotime($job_date);
 $day   = date('d',$job_date_real);
 $year  = date('Y',$job_date_real);
 $month = date('M',  $job_date_real);

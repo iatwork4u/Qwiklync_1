@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `tbl_jobs`
 --
 
-DROP TABLE IF EXISTS `tbl_jobs`;
 CREATE TABLE IF NOT EXISTS `tbl_jobs` (
   `job_id` int(11) NOT NULL AUTO_INCREMENT,
   `job_img` blob NOT NULL,

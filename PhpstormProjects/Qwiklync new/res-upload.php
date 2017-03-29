@@ -97,7 +97,7 @@ Author: iatwork4u
                 <a href="#">Services</a>
             </li>
             <li>
-                <a href="contact.html">Contact</a>
+                <a href="contact.php">Contact</a>
             </li>
             <li>
                 <a href="https://twitter.com/Qwiklync">Follow me</a>
@@ -212,14 +212,14 @@ Author: iatwork4u
                     <ul class="f_list f_list1">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="login.php">Sign In</a></li>
-                        <li><a href="login.php">Join Now</a></li>
+                        <li><a href="register.php">Join Now</a></li>
                         <li><a href="about.html">About</a></li>
                     </ul>
                     <ul class="f_list">
                         <li><a href="features.html">Features</a></li>
                         <li><a href="terms.html">Terms of use</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="jobs.html">Post a Job</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="job-post.html">Post a Job</a></li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
@@ -246,7 +246,6 @@ Author: iatwork4u
                 </div>
                 <div class="col-md-3 grid_3">
                     <h4>Sign up for our newsletter</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
                     <form>
                         <input type="text" class="form-control" placeholder="Enter your email">
                         <button type="button" class="btn red">Subscribe now!</button>
